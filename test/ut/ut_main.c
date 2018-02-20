@@ -122,7 +122,6 @@ int main(int argc, char* argv[])
         UT_CSTL_DEQUE_ITERATOR_CASE,
         UT_CSTL_DEQUE_AUX_CASE,
         UT_CSTL_DEQUE_PRIVATE_CASE,
-        */
         UT_CSTL_DEQUE_CASE/*,
         UT_CSTL_SLIST_ITERATOR_CASE,
         UT_CSTL_SLIST_AUX_CASE,
@@ -189,8 +188,9 @@ int main(int argc, char* argv[])
         UT_CSTL_ITERATOR_CASE,
         UT_CSTL_TYPES_BUILTIN_CASE,
         UT_CSTL_TYPES_PARSE_CASE,
-        UT_CSTL_TYPES_AUX_CASE,
-        UT_CSTL_TYPES_CASE,
+        UT_CSTL_TYPES_AUX_CASE,*/
+        UT_CSTL_TYPES_CASE
+        /*
 #ifndef _MSC_VER
         UT_CSTL_TYPES_BUILTIN_CASE_C99,
         UT_CSTL_TYPES_PARSE_CASE_C99,

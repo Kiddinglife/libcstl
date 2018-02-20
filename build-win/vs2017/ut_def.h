@@ -34,4 +34,3 @@ void test_case_setup(void** state);
 void test_case_teardown(void** state);
 
 #endif /* _UT_DEF_H_ */
-

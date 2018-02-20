@@ -1,0 +1,40 @@
+void test__hashtable_find__libcstl_builtin_not_find(void** state)
+{
+    _hashtable_t* pt_hashtable = _create_hashtable(vector);
+		v = 0;
+		hash(vector):
+			for item in vector：
+				case list:
+					hashv = list.hash():
+						for item in list:
+							case map:
+								for k,v in map:
+									case k = charp:
+										v = harsh(v,k)
+									case v = vector:
+										v = harsh(v,harshvector(v))
+								return v;
+	
+for exaample:
+	void create(...)
+    void parse_data_type(...)
+    register_type()
+	
+	
+	int my_type_id = register_type()
+	vector_t* vec1 = create_vector(uint_t)
+	map_t* map = create_map(char_t,vector_type)
+	map.insert('1',vec1)
+	hash_map(map):
+		uint hashv = 0;
+		for k,v in map:
+			case k.type = char_t:
+				hashv = harsh(v,k.val)
+			case v.type = vector_t:
+				hashv = harsh(hashv,harshvector((vector*)v.val))
+		return hashv;
+	
+	
+	
+	
+	

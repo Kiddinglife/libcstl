@@ -37,7 +37,7 @@ void test_basic_string_init__successfully_c_builtin(void** state)
 {
     basic_string_t* pt_basic_string = create_basic_string(int);
     basic_string_init(pt_basic_string);
-
+     
     assert_true(basic_string_size(pt_basic_string) == 0);
     assert_true(basic_string_capacity(pt_basic_string) == 0);
 
