@@ -1,6 +1,8 @@
 #ifndef _UT_DEF_H_
 #define _UT_DEF_H_
 
+#include <stdio.h> // have this to avoid warn error from gcc
+
 #define UT_SUIT_SEPARATOR_OPEN  printf("\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ")
 #define UT_SUIT_SEPARATOR_CLOSE printf(" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n")
 #define UT_CASE_SEPARATOR_OPEN  printf("-------------------------------- ")
