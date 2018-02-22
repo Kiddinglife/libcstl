@@ -6,6 +6,8 @@ extern "C" {
 #endif
 
 #include <stddef.h>
+#include "mycstl/cstl_def.h"
+
     /* c built-in type */
 #define _CHAR_TYPE                      "char"
 #define _SIGNED_CHAR_TYPE               "signed char"
@@ -115,51 +117,52 @@ extern "C" {
     typedef unary_function_t  ufun_t;
     typedef binary_function_t bfun_t;
 
-    /*
-    * Type register hash table.
-    */
-    /* type structure for all container. */
-#define _TYPE_NAME_SIZE              255
-
-    /* type style */
-    typedef enum _tagtypestley
+#define TYPE_NAME_SIZE              255
+    typedef enum
     {
-        _TYPE_INVALID = 0, _TYPE_C_BUILTIN, _TYPE_USER_DEFINE, _TYPE_CSTL_BUILTIN
-    }_typestyle_t;
+        TYPE_INVALID = 0,
+        TYPE_C_BUILTIN,
+        TYPE_USER_DEFINE,
+        TYPE_CSTL_BUILTIN
+    }tagtypestyle;
 
-    typedef struct _tagtype
+    typedef struct
     {
+        int                   _t_typeid;
         size_t               _t_typesize;                        /* type size */
-        char                 _s_typename[_TYPE_NAME_SIZE + 1];   /* type name */
-        _typestyle_t         _t_style;                           /* type style */
+        char                 _s_typename[TYPE_NAME_SIZE + 1];   /* type name */
+        tagtypestyle         _t_style;                           /* type style */
         bfun_t               _t_typecopy;                        /* type copy function */
         bfun_t               _t_typeless;                        /* type less function */
         ufun_t               _t_typeinit;                        /* type initialize function */
         ufun_t               _t_typedestroy;                     /* type destroy function */
-    }_type_t;
+    }type_t;
 
-    /* type register node */
-    typedef struct _tagtypenode
+    typedef struct
     {
-        char                 _s_typename[_TYPE_NAME_SIZE + 1];   /* type name */
-        struct _tagtypenode* _pt_next;                           /* next node */
-        _type_t*             _pt_type;                           /* the registered type */
-    }_typenode_t;
+        int                   _t_typeid;
+        char                 _s_typename[TYPE_NAME_SIZE + 1];
+        type_t*             _pt_type;
+        tagtypestyle         _t_style;
+    }type_info_t;
 
-    /* type register table */
-#define _TYPE_REGISTER_BUCKET_COUNT  997   /* register hash table bucket count */
-    typedef struct _tagtyperegister
+    typedef struct type_node_t_def
+    {
+        int                   _t_typeid;
+        char                 _s_typename[TYPE_NAME_SIZE + 1];   /* type name */
+        struct type_node_t_def* _pt_next;                           /* next node */
+        type_t*             _pt_type;                           /* the registered type */
+    }type_node_t;
+
+#define TYPE_REGISTER_BUCKET_COUNT  997   /* register hash table bucket count */
+    typedef struct 
     {
         int               _t_isinit; /* is initializate for built in types */
-        _typenode_t*         _apt_bucket[_TYPE_REGISTER_BUCKET_COUNT]; /* hash table */
-    }_typeregister_t;
+        int _curr_size;
+        type_node_t*         _apt_bucket[TYPE_REGISTER_BUCKET_COUNT]; /* hash table */
+    }type_register_t;
 
-    typedef struct _tagtypeinfo
-    {
-        char                 _s_typename[_TYPE_NAME_SIZE + 1];
-        _type_t*             _pt_type;
-        _typestyle_t         _t_style;
-    }_typeinfo_t;
+    extern void mtype_get_type(type_info_t* pt_typeinfo, const char* s_typename);
 
 
 #ifdef __cplusplus
