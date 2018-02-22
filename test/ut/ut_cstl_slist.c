@@ -113,7 +113,6 @@ void test_slist_init_n__libcstl_builtin(void** state)
 {
     slist_iterator_t it_iter;
     slist_t* pslist = create_slist(vector_t<int>);
-
     slist_init_n(pslist, 10);
     assert_true(_slist_is_inited(pslist));
     assert_true(slist_size(pslist) == 10);

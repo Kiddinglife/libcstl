@@ -17,6 +17,20 @@ void test__hashtable_find__libcstl_builtin_not_find(void** state)
 	
 for exaample:
 	void create(...)
+	create_vector(list,vector, int)
+		create_vector_aux():
+			vectortypeinfo.nodetype = arglist[0]
+		for i =0;i < arglist.len;i++
+			switch arglist[i]:
+				case listt:
+					create_list(arglist[i+1]):
+						listtypeinfo.nodetype = arglist[i+1]
+				case vector:
+					create_vector_aux():
+						vectortypeinfo.nodetype = arglist[0]
+			
+			
+										
     void parse_data_type(...)
     register_type()
 	
@@ -33,8 +47,9 @@ for exaample:
 			case v.type = vector_t:
 				hashv = harsh(hashv,harshvector((vector*)v.val))
 		return hashv;
-	
-	
-	
+
+		
+make logs and see outputs ecpecially for type parse part (slist_t* pslist = create_slist(vector_t<int>);)
+what values are assigned ?
 	
 	
