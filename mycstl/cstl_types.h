@@ -13,7 +13,7 @@ extern "C" {
 #define TYPE_REGISTER_BUCKET_COUNT  64
 #define TYPE_ID_SIZE              4
 
-    typedef enum
+    enum
     {
         sint8t,
         uint8t,
@@ -24,46 +24,22 @@ extern "C" {
         sint64t,
         uint64t,
         floatt,
+
         doublet,
-        suint8pointert,
-        voidpointert,
+        voidpt,
 
         vector_tt,
         list_tt,
         map_tt,
         hash_tt,
+    };
 
+    enum
+    {
         ctype,
         cstltype,
         userdefined,
         invalidtype
-    };
-
-    const char* g_buildin_type_str[] =
-    {
-        "sint8t",
-        "uint8t",
-        "sint16t",
-        "uint16t",
-        "sint32t",
-        "uint32t",
-        "sint64t",
-        "uint64t",
-        "floatt",
-        "doublet",
-        "suint8pointert",
-        "voidpointert",
-
-        "vector_tt",
-        "list_tt",
-        "map_tt",
-        "hash_tt",
-
-        "ctype",
-        "cstltype",
-        "userdefined",
-        "userdefined",
-        "invalidtype",
     };
 
     /*
@@ -77,8 +53,6 @@ extern "C" {
 
     typedef struct
     {
-        size_t                   _t_typeids[TYPE_ID_SIZE];
-        size_t                  _t_typeid_size;
         size_t                   _t_typeid;
         size_t               _t_typesize;                        /* type size */
         size_t         _t_style;                           /* type style */
@@ -95,8 +69,7 @@ extern "C" {
         type_t*                _apt_bucket[TYPE_REGISTER_BUCKET_COUNT];
     }type_register_t;
 
-    extern void mtype_get_type(type_t* pt_typeinfo, const char* s_typename);
-
+    extern type_t*  mtype_get_type(int typeid);
 
 #ifdef __cplusplus
 }

@@ -22,8 +22,8 @@ UT_SUIT_DEFINATION(cstl_map, map_init)
 /*
  * test map_init
  */
-UT_CASE_DEFINATION(map_init)
-void test_map_init__null_map(void** state)
+    UT_CASE_DEFINATION(map_init)
+    void test_map_init__null_map(void** state)
 {
     expect_assert_failure(map_init(NULL));
 }
@@ -305,7 +305,7 @@ void test_map_init_copy__non_null_compare(void** state)
 
     map_init_ex(pt_src, _test_map_init_copy__non_null_compare);
     pair_init(pt_pair);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_src, pt_pair);
@@ -600,13 +600,13 @@ void test_map_init_copy_range__other_container_range_not_pair(void** state)
 UT_CASE_DEFINATION(map_init_copy_array)
 void test_map_init_copy_array__null_map(void** state)
 {
-    pair_t* appair[10] = {0};
+    pair_t* appair[10] = { 0 };
     expect_assert_failure(map_init_copy_array(NULL, appair, 10));
 }
 
 void test_map_init_copy_array__non_created_map(void** state)
 {
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
 #ifdef CSTL_MAP_AVL_TREE
@@ -624,7 +624,7 @@ void test_map_init_copy_array__non_created_map(void** state)
 
 void test_map_init_copy_array__non_created_map_pair(void** state)
 {
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     pt_dest->_pair_temp._pv_first = (void*)0x8989;
@@ -646,7 +646,7 @@ void test_map_init_copy_array__invalid_array(void** state)
 void test_map_init_copy_array__invalid_array_not_same_type(void** state)
 {
     int i = 0;
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     for (i = 0; i < 10; ++i) {
@@ -664,7 +664,7 @@ void test_map_init_copy_array__invalid_array_not_same_type(void** state)
 void test_map_init_copy_array__empty(void** state)
 {
     int i = 0;
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     for (i = 0; i < 10; ++i) {
@@ -689,7 +689,7 @@ void test_map_init_copy_array__empty(void** state)
 void test_map_init_copy_array__non_empty(void** state)
 {
     int i = 0;
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     for (i = 0; i < 10; ++i) {
@@ -714,7 +714,7 @@ void test_map_init_copy_array__non_empty(void** state)
 void test_map_init_copy_array__non_empty_dup(void** state)
 {
     int i = 0;
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     for (i = 0; i < 10; ++i) {
@@ -1060,13 +1060,13 @@ void test_map_init_copy_range_ex__other_container_range_not_pair(void** state)
 UT_CASE_DEFINATION(map_init_copy_array_ex)
 void test_map_init_copy_array_ex__null_map(void** state)
 {
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     expect_assert_failure(map_init_copy_array_ex(NULL, appair, 10, NULL));
 }
 
 void test_map_init_copy_array_ex__non_created_map(void** state)
 {
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
 #ifdef CSTL_MAP_AVL_TREE
@@ -1084,7 +1084,7 @@ void test_map_init_copy_array_ex__non_created_map(void** state)
 
 void test_map_init_copy_array_ex__non_created_map_pair(void** state)
 {
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     pt_dest->_pair_temp._pv_second = (void*)0x7383;
@@ -1106,7 +1106,7 @@ void test_map_init_copy_array_ex__invalid_array(void** state)
 void test_map_init_copy_array_ex__invalid_array_not_same_type(void** state)
 {
     int i = 0;
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     for (i = 0; i < 10; ++i) {
@@ -1124,7 +1124,7 @@ void test_map_init_copy_array_ex__invalid_array_not_same_type(void** state)
 void test_map_init_copy_array_ex__empty(void** state)
 {
     int i = 0;
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     for (i = 0; i < 10; ++i) {
@@ -1149,7 +1149,7 @@ void test_map_init_copy_array_ex__empty(void** state)
 void test_map_init_copy_array_ex__non_empty(void** state)
 {
     int i = 0;
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     for (i = 0; i < 10; ++i) {
@@ -1174,7 +1174,7 @@ void test_map_init_copy_array_ex__non_empty(void** state)
 void test_map_init_copy_array_ex__non_empty_dup(void** state)
 {
     int i = 0;
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     for (i = 0; i < 10; ++i) {
@@ -1203,7 +1203,7 @@ static void _test__map_init_compare_array_ex__compare(const void* cpv_first, con
 void test_map_init_copy_array_ex__compare(void** state)
 {
     int i = 0;
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     for (i = 0; i < 10; ++i) {
@@ -2182,8 +2182,8 @@ void test_map_equal__non_inited_second_pair(void** state)
 
 void test_map_equal__not_same_type(void** state)
 {
-    map_t* pt_first = create_map(int,int);
-    map_t* pt_second = create_map(list_t<int>,int);
+    map_t* pt_first = create_map(int, int);
+    map_t* pt_second = create_map(list_t<int>, int);
 
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
@@ -2206,8 +2206,8 @@ void test_map_equal__same_map(void** state)
 
 void test_map_equal__size_first_less_than_second(void** state)
 {
-    map_t* pt_first = create_map(int,int);
-    map_t* pt_second = create_map(signed int,int);
+    map_t* pt_first = create_map(int, int);
+    map_t* pt_second = create_map(signed int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i;
 
@@ -2215,12 +2215,12 @@ void test_map_equal__size_first_less_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 0; i < 20; ++i)
+    for (i = 0; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -2235,8 +2235,8 @@ void test_map_equal__size_first_less_than_second(void** state)
 
 void test_map_equal__size_first_greater_than_second(void** state)
 {
-    map_t* pt_first = create_map(int,int);
-    map_t* pt_second = create_map(signed int,int);
+    map_t* pt_first = create_map(int, int);
+    map_t* pt_second = create_map(signed int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i;
 
@@ -2244,12 +2244,12 @@ void test_map_equal__size_first_greater_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 0; i < 2; ++i)
+    for (i = 0; i < 2; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -2278,8 +2278,8 @@ void test_map_equal__size_equal_0(void** state)
 
 void test_map_equal__size_equal_elem_first_less_than_second(void** state)
 {
-    map_t* pt_first = create_map(int,int);
-    map_t* pt_second = create_map(signed int,int);
+    map_t* pt_first = create_map(int, int);
+    map_t* pt_second = create_map(signed int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i;
 
@@ -2287,12 +2287,12 @@ void test_map_equal__size_equal_elem_first_less_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -2307,8 +2307,8 @@ void test_map_equal__size_equal_elem_first_less_than_second(void** state)
 
 void test_map_equal__size_equal_elem_first_greater_than_second(void** state)
 {
-    map_t* pt_first = create_map(int,int);
-    map_t* pt_second = create_map(signed int,int);
+    map_t* pt_first = create_map(int, int);
+    map_t* pt_second = create_map(signed int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i;
 
@@ -2316,12 +2316,12 @@ void test_map_equal__size_equal_elem_first_greater_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 30; i < 40; ++i)
+    for (i = 30; i < 40; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -2340,8 +2340,8 @@ static void _test_map_equal__compare_not_equal(const void* cpv_first, const void
 }
 void test_map_equal__compare_not_equal(void** state)
 {
-    map_t* pt_first = create_map(int,int);
-    map_t* pt_second = create_map(signed int,int);
+    map_t* pt_first = create_map(int, int);
+    map_t* pt_second = create_map(signed int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i;
 
@@ -2349,7 +2349,7 @@ void test_map_equal__compare_not_equal(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, _test_map_equal__compare_not_equal);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
@@ -2365,8 +2365,8 @@ void test_map_equal__compare_not_equal(void** state)
 
 void test_map_equal__equal(void** state)
 {
-    map_t* pt_first = create_map(int,int);
-    map_t* pt_second = create_map(signed int,int);
+    map_t* pt_first = create_map(int, int);
+    map_t* pt_second = create_map(signed int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i;
 
@@ -2374,7 +2374,7 @@ void test_map_equal__equal(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
@@ -2518,8 +2518,8 @@ void test_map_not_equal__same_map(void** state)
 
 void test_map_not_equal__size_first_less_than_second(void** state)
 {
-    map_t* pt_first = create_map(int,int);
-    map_t* pt_second = create_map(signed int,int);
+    map_t* pt_first = create_map(int, int);
+    map_t* pt_second = create_map(signed int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i;
 
@@ -2527,12 +2527,12 @@ void test_map_not_equal__size_first_less_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 0; i < 20; ++i)
+    for (i = 0; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -2547,8 +2547,8 @@ void test_map_not_equal__size_first_less_than_second(void** state)
 
 void test_map_not_equal__size_first_greater_than_second(void** state)
 {
-    map_t* pt_first = create_map(int,int);
-    map_t* pt_second = create_map(signed int,int);
+    map_t* pt_first = create_map(int, int);
+    map_t* pt_second = create_map(signed int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i;
 
@@ -2556,12 +2556,12 @@ void test_map_not_equal__size_first_greater_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 0; i < 2; ++i)
+    for (i = 0; i < 2; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -2590,8 +2590,8 @@ void test_map_not_equal__size_equal_0(void** state)
 
 void test_map_not_equal__size_equal_elem_first_less_than_second(void** state)
 {
-    map_t* pt_first = create_map(int,int);
-    map_t* pt_second = create_map(signed int,int);
+    map_t* pt_first = create_map(int, int);
+    map_t* pt_second = create_map(signed int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i;
 
@@ -2599,12 +2599,12 @@ void test_map_not_equal__size_equal_elem_first_less_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -2619,8 +2619,8 @@ void test_map_not_equal__size_equal_elem_first_less_than_second(void** state)
 
 void test_map_not_equal__size_equal_elem_first_greater_than_second(void** state)
 {
-    map_t* pt_first = create_map(int,int);
-    map_t* pt_second = create_map(signed int,int);
+    map_t* pt_first = create_map(int, int);
+    map_t* pt_second = create_map(signed int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i;
 
@@ -2628,12 +2628,12 @@ void test_map_not_equal__size_equal_elem_first_greater_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 30; i < 40; ++i)
+    for (i = 30; i < 40; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -2652,8 +2652,8 @@ static void _test_map_not_equal__compare_not_equal(const void* cpv_first, const 
 }
 void test_map_not_equal__compare_not_equal(void** state)
 {
-    map_t* pt_first = create_map(int,int);
-    map_t* pt_second = create_map(signed int,int);
+    map_t* pt_first = create_map(int, int);
+    map_t* pt_second = create_map(signed int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i;
 
@@ -2661,7 +2661,7 @@ void test_map_not_equal__compare_not_equal(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, _test_map_not_equal__compare_not_equal);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
@@ -2677,8 +2677,8 @@ void test_map_not_equal__compare_not_equal(void** state)
 
 void test_map_not_equal__equal(void** state)
 {
-    map_t* pt_first = create_map(int,int);
-    map_t* pt_second = create_map(signed int,int);
+    map_t* pt_first = create_map(int, int);
+    map_t* pt_second = create_map(signed int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i;
 
@@ -2686,7 +2686,7 @@ void test_map_not_equal__equal(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
@@ -2839,12 +2839,12 @@ void test_map_less__size_first_less_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 0; i < 20; ++i)
+    for (i = 0; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -2868,12 +2868,12 @@ void test_map_less__size_first_greater_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 0; i < 2; ++i)
+    for (i = 0; i < 2; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -2911,12 +2911,12 @@ void test_map_less__size_equal_elem_first_less_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -2940,12 +2940,12 @@ void test_map_less__size_equal_elem_first_greater_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 30; i < 40; ++i)
+    for (i = 30; i < 40; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -2973,7 +2973,7 @@ void test_map_less__compare_less(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, _test_map_less__compare_less);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
@@ -2998,7 +2998,7 @@ void test_map_less__equal(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
@@ -3151,12 +3151,12 @@ void test_map_less_equal__size_first_less_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 0; i < 20; ++i)
+    for (i = 0; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -3180,12 +3180,12 @@ void test_map_less_equal__size_first_greater_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 0; i < 2; ++i)
+    for (i = 0; i < 2; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -3223,12 +3223,12 @@ void test_map_less_equal__size_equal_elem_first_less_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -3252,12 +3252,12 @@ void test_map_less_equal__size_equal_elem_first_greater_than_second(void** state
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 30; i < 40; ++i)
+    for (i = 30; i < 40; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -3285,7 +3285,7 @@ void test_map_less_equal__compare_less(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, _test_map_less_equal__compare_less);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
@@ -3310,7 +3310,7 @@ void test_map_less_equal__equal(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
@@ -3463,12 +3463,12 @@ void test_map_greater__size_first_less_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 0; i < 20; ++i)
+    for (i = 0; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -3492,12 +3492,12 @@ void test_map_greater__size_first_greater_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 0; i < 2; ++i)
+    for (i = 0; i < 2; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -3535,12 +3535,12 @@ void test_map_greater__size_equal_elem_first_less_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -3564,12 +3564,12 @@ void test_map_greater__size_equal_elem_first_greater_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 30; i < 40; ++i)
+    for (i = 30; i < 40; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -3597,7 +3597,7 @@ void test_map_greater__compare_less(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, _test_map_greater__compare_less);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
@@ -3622,7 +3622,7 @@ void test_map_greater__equal(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
@@ -3775,12 +3775,12 @@ void test_map_greater_equal__size_first_less_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 0; i < 20; ++i)
+    for (i = 0; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -3804,12 +3804,12 @@ void test_map_greater_equal__size_first_greater_than_second(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 0; i < 2; ++i)
+    for (i = 0; i < 2; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -3847,12 +3847,12 @@ void test_map_greater_equal__size_equal_elem_first_less_than_second(void** state
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -3876,12 +3876,12 @@ void test_map_greater_equal__size_equal_elem_first_greater_than_second(void** st
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 30; i < 40; ++i)
+    for (i = 30; i < 40; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -3909,7 +3909,7 @@ void test_map_greater_equal__compare_less(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, _test_map_greater_equal__compare_less);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
@@ -3934,7 +3934,7 @@ void test_map_greater_equal__equal(void** state)
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
@@ -4087,7 +4087,7 @@ void test_map_swap__0_swap_n(void** state)
     pair_init(pt_pair);
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -4114,7 +4114,7 @@ void test_map_swap__n_swap_0(void** state)
     pair_init(pt_pair);
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
@@ -4141,12 +4141,12 @@ void test_map_swap__n_swap_n(void** state)
     pair_init(pt_pair);
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 100; i < 110; ++i)
+    for (i = 100; i < 110; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -4175,12 +4175,12 @@ void test_map_swap__m_swap_n(void** state)
     pair_init(pt_pair);
     map_init_ex(pt_first, NULL);
     map_init_ex(pt_second, NULL);
-    for(i = 0; i < 30; ++i)
+    for (i = 0; i < 30; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_first, pt_pair);
     }
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_second, pt_pair);
@@ -4289,7 +4289,7 @@ void test_map_insert__c_builtin_equal(void** state)
 
     map_init_ex(pt_map, NULL);
     pair_init(pt_pair);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_map, pt_pair);
@@ -4313,7 +4313,7 @@ void test_map_insert__c_builtin_not_equal(void** state)
 
     pair_init(pt_pair);
     map_init_ex(pt_map, NULL);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_map, pt_pair);
@@ -4321,7 +4321,7 @@ void test_map_insert__c_builtin_not_equal(void** state)
 
     pair_make(pt_pair, -8, 3);
     it_iter = map_insert(pt_map, pt_pair);
-    assert_true(*(int*)pair_first((pair_t*)iterator_get_pointer(it_iter))== -8);
+    assert_true(*(int*)pair_first((pair_t*)iterator_get_pointer(it_iter)) == -8);
     assert_true(map_size(pt_map) == 11);
 
     map_destroy(pt_map);
@@ -4398,7 +4398,7 @@ void test_map_insert__libcstl_builtin_equal(void** state)
     list_init(plist);
     vector_init(pvec);
 
-    for(i = 0; i < 10; i++)
+    for (i = 0; i < 10; i++)
     {
         list_clear(plist);
         vector_clear(pvec);
@@ -4437,7 +4437,7 @@ void test_map_insert__libcstl_builtin_not_equal(void** state)
     list_init(plist);
     vector_init(pvec);
 
-    for(i = 0; i < 10; i++)
+    for (i = 0; i < 10; i++)
     {
         list_clear(plist);
         vector_clear(pvec);
@@ -4482,7 +4482,7 @@ void test_map_insert__user_define_equal(void** state)
     pair_init(pt_pair);
     map_init_ex(pt_map, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         elem.n_elem = i;
         pair_make(pt_pair, &elem, &elem);
@@ -4501,7 +4501,7 @@ void test_map_insert__user_define_equal(void** state)
 
 void test_map_insert__user_define_not_equal(void** state)
 {
-    map_t* pt_map =  create_map(_test_map_insert__user_define_t, _test_map_insert__user_define_t);
+    map_t* pt_map = create_map(_test_map_insert__user_define_t, _test_map_insert__user_define_t);
     pair_t* pt_pair = create_pair(_test_map_insert__user_define_t, _test_map_insert__user_define_t);
     map_iterator_t it_iter;
     _test_map_insert__user_define_t elem;
@@ -4510,7 +4510,7 @@ void test_map_insert__user_define_not_equal(void** state)
     pair_init(pt_pair);
     map_init_ex(pt_map, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         elem.n_elem = i * 2;
         pair_make(pt_pair, &elem, &elem);
@@ -4676,7 +4676,7 @@ void test_map_insert_hint__c_builtin_equal(void** state)
 
     map_init_ex(pt_map, NULL);
     pair_init(pt_pair);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert_hint(pt_map, map_end(pt_map), pt_pair);
@@ -4700,7 +4700,7 @@ void test_map_insert_hint__c_builtin_not_equal(void** state)
 
     pair_init(pt_pair);
     map_init_ex(pt_map, NULL);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert_hint(pt_map, map_end(pt_map), pt_pair);
@@ -4708,7 +4708,7 @@ void test_map_insert_hint__c_builtin_not_equal(void** state)
 
     pair_make(pt_pair, -8, 3);
     it_iter = map_insert_hint(pt_map, map_end(pt_map), pt_pair);
-    assert_true(*(int*)pair_first((pair_t*)iterator_get_pointer(it_iter))== -8);
+    assert_true(*(int*)pair_first((pair_t*)iterator_get_pointer(it_iter)) == -8);
     assert_true(map_size(pt_map) == 11);
 
     map_destroy(pt_map);
@@ -4785,7 +4785,7 @@ void test_map_insert_hint__libcstl_builtin_equal(void** state)
     list_init(plist);
     vector_init(pvec);
 
-    for(i = 0; i < 10; i++)
+    for (i = 0; i < 10; i++)
     {
         list_clear(plist);
         vector_clear(pvec);
@@ -4824,7 +4824,7 @@ void test_map_insert_hint__libcstl_builtin_not_equal(void** state)
     list_init(plist);
     vector_init(pvec);
 
-    for(i = 0; i < 10; i++)
+    for (i = 0; i < 10; i++)
     {
         list_clear(plist);
         vector_clear(pvec);
@@ -4869,7 +4869,7 @@ void test_map_insert_hint__user_define_equal(void** state)
     pair_init(pt_pair);
     map_init_ex(pt_map, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         elem.n_elem = i;
         pair_make(pt_pair, &elem, &elem);
@@ -4888,7 +4888,7 @@ void test_map_insert_hint__user_define_equal(void** state)
 
 void test_map_insert_hint__user_define_not_equal(void** state)
 {
-    map_t* pt_map =  create_map(_test_map_insert_hint__user_define_t, _test_map_insert_hint__user_define_t);
+    map_t* pt_map = create_map(_test_map_insert_hint__user_define_t, _test_map_insert_hint__user_define_t);
     pair_t* pt_pair = create_pair(_test_map_insert_hint__user_define_t, _test_map_insert_hint__user_define_t);
     map_iterator_t it_iter;
     _test_map_insert_hint__user_define_t elem;
@@ -4897,7 +4897,7 @@ void test_map_insert_hint__user_define_not_equal(void** state)
     pair_init(pt_pair);
     map_init_ex(pt_map, NULL);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         elem.n_elem = i * 2;
         pair_make(pt_pair, &elem, &elem);
@@ -5096,12 +5096,12 @@ void test_map_insert_range__non_empty_equal(void** state)
     map_init_ex(pt_dest, NULL);
     map_init_ex(pt_src, NULL);
     pair_init(pt_pair);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_dest, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_src, pt_pair);
@@ -5129,12 +5129,12 @@ void test_map_insert_range__non_empty_dest_src_dup(void** state)
     pair_init(pt_pair);
     map_init_ex(pt_dest, NULL);
     map_init_ex(pt_src, NULL);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_dest, pt_pair);
     }
-    for(i = 5; i < 15; ++i)
+    for (i = 5; i < 15; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_src, pt_pair);
@@ -5162,12 +5162,12 @@ void test_map_insert_range__non_empty_src_dup(void** state)
     pair_init(pt_pair);
     map_init_ex(pt_dest, NULL);
     map_init_ex(pt_src, NULL);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_dest, pt_pair);
     }
-    for(i = 15; i < 25; ++i)
+    for (i = 15; i < 25; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_src, pt_pair);
@@ -5277,13 +5277,13 @@ void test_map_insert_range__other_container_range_not_pair(void** state)
 UT_CASE_DEFINATION(map_insert_array)
 void test_map_insert_array__null_map(void** state)
 {
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     expect_assert_failure(map_insert_array(NULL, appair, 10));
 }
 
 void test_map_insert_array__non_inited(void** state)
 {
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     map_init_ex(pt_dest, NULL);
@@ -5302,7 +5302,7 @@ void test_map_insert_array__non_inited(void** state)
 
 void test_map_insert_array__non_inited_pair(void** state)
 {
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
     void* pv_tmp = NULL;
 
@@ -5329,7 +5329,7 @@ void test_map_insert_array__invalid_array(void** state)
 void test_map_insert_array__not_same_type(void** state)
 {
     int i = 0;
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     map_init_ex(pt_dest, NULL);
@@ -5349,7 +5349,7 @@ void test_map_insert_array__not_same_type(void** state)
 void test_map_insert_array__empty(void** state)
 {
     int i = 0;
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
 
     map_init_ex(pt_dest, NULL);
@@ -5369,19 +5369,19 @@ void test_map_insert_array__empty(void** state)
 
 void test_map_insert_array__non_empty_equal(void** state)
 {
-    pair_t* appair[10] = {0};
+    pair_t* appair[10] = { 0 };
     map_t* pt_dest = create_map(int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i = 0;
 
     map_init_ex(pt_dest, NULL);
     pair_init(pt_pair);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_dest, pt_pair);
     }
-    for(i = 10; i < 20; ++i)
+    for (i = 10; i < 20; ++i)
     {
         appair[i - 10] = create_pair(int, int);
         pair_init_elem(appair[i - 10], i, i);
@@ -5399,19 +5399,19 @@ void test_map_insert_array__non_empty_equal(void** state)
 
 void test_map_insert_array__non_empty_dest_src_dup(void** state)
 {
-    pair_t* appair[10] = {NULL};
+    pair_t* appair[10] = { NULL };
     map_t* pt_dest = create_map(int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i = 0;
 
     pair_init(pt_pair);
     map_init_ex(pt_dest, NULL);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_dest, pt_pair);
     }
-    for(i = 5; i < 15; ++i)
+    for (i = 5; i < 15; ++i)
     {
         appair[i - 5] = create_pair(int, int);
         pair_init_elem(appair[i - 5], i, i);
@@ -5429,14 +5429,14 @@ void test_map_insert_array__non_empty_dest_src_dup(void** state)
 
 void test_map_insert_array__non_empty_src_dup(void** state)
 {
-    pair_t* appair[20] = {NULL};
+    pair_t* appair[20] = { NULL };
     map_t* pt_dest = create_map(int, int);
     pair_t* pt_pair = create_pair(int, int);
     int i = 0;
 
     pair_init(pt_pair);
     map_init_ex(pt_dest, NULL);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_dest, pt_pair);
@@ -5585,7 +5585,7 @@ void test_map_erase_pos__begin(void** state)
 
     map_init_ex(pt_map, NULL);
     pair_init(pt_pair);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_map, pt_pair);
@@ -5610,7 +5610,7 @@ void test_map_erase_pos__middle(void** state)
 
     map_init_ex(pt_map, NULL);
     pair_init(pt_pair);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_map, pt_pair);
@@ -5636,7 +5636,7 @@ void test_map_erase_pos__last(void** state)
 
     map_init_ex(pt_map, NULL);
     pair_init(pt_pair);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_map, pt_pair);
@@ -5781,7 +5781,7 @@ void test_map_erase_range__invalid_range(void** state)
 
 void test_map_erase_range__empty(void** state)
 {
-    map_t* pt_dest = create_map(int,int);
+    map_t* pt_dest = create_map(int, int);
     map_iterator_t it_begin;
     map_iterator_t it_end;
 
@@ -5797,7 +5797,7 @@ void test_map_erase_range__empty(void** state)
 
 void test_map_erase_range__begin(void** state)
 {
-    map_t* pt_dest = create_map(int,int);
+    map_t* pt_dest = create_map(int, int);
     pair_t* pt_pair = create_pair(int, int);
     map_iterator_t it_begin;
     map_iterator_t it_end;
@@ -5805,7 +5805,7 @@ void test_map_erase_range__begin(void** state)
 
     map_init_ex(pt_dest, NULL);
     pair_init(pt_pair);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_dest, pt_pair);
@@ -5831,7 +5831,7 @@ void test_map_erase_range__middle(void** state)
 
     map_init_ex(pt_dest, NULL);
     pair_init(pt_pair);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_dest, pt_pair);
@@ -5859,7 +5859,7 @@ void test_map_erase_range__end(void** state)
 
     map_init_ex(pt_dest, NULL);
     pair_init(pt_pair);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_dest, pt_pair);
@@ -5886,7 +5886,7 @@ void test_map_erase_range__all(void** state)
 
     map_init_ex(pt_dest, NULL);
     pair_init(pt_pair);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         pair_make(pt_pair, i, i);
         map_insert(pt_dest, pt_pair);

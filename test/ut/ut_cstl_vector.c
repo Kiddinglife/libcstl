@@ -18,8 +18,8 @@ UT_SUIT_DEFINATION(cstl_vector, vector_init)
 /*
  * test vector_init
  */
-UT_CASE_DEFINATION(vector_init)
-void test_vector_init__null_vector_container(void** state)
+    UT_CASE_DEFINATION(vector_init)
+    void test_vector_init__null_vector_container(void** state)
 {
     expect_assert_failure(vector_init(NULL));
 }
@@ -119,7 +119,7 @@ void test_vector_init_n__successfully_c_builtin(void** state)
     vector_init_n(pvec, 10);
     assert_true(vector_size(pvec) == 10);
     assert_true(vector_capacity(pvec) == 26);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -135,7 +135,7 @@ void test_vector_init_n__successfully_cstr(void** state)
     vector_init_n(pvec, 20);
     assert_true(vector_size(pvec) == 20);
     assert_true(vector_capacity(pvec) == 36);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(strcmp((char*)vector_at(pvec, i), "") == 0);
     }
@@ -151,7 +151,7 @@ void test_vector_init_n__successfully_cstl_builtin(void** state)
     vector_init_n(pvec, 40);
     assert_true(vector_size(pvec) == 40);
     assert_true(vector_capacity(pvec) == 60);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(_vector_is_inited((vector_t*)vector_at(pvec, i)));
     }
@@ -177,7 +177,7 @@ void test_vector_init_n__successfully_user_defined(void** state)
     assert_true(vector_size(pvec) == 160);
     assert_true(vector_capacity(pvec) == 240);
     memset(&t_elem, 0x00, sizeof(t_elem));
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(memcmp((_test_vector_init_n__successfully_user_defined_t*)vector_at(pvec, i), &t_elem, sizeof(t_elem)) == 0);
     }
@@ -269,7 +269,7 @@ void test_vector_init_copy__successfully_c_builtin_little(void** state)
     vector_init_copy(pvec_dest, pvec_src);
     assert_true(vector_size(pvec_dest) == vector_size(pvec_src));
     assert_true(vector_capacity(pvec_dest) == 26);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 2010);
     }
@@ -288,7 +288,7 @@ void test_vector_init_copy__successfully_c_builtin_huge(void** state)
     vector_init_copy(pvec_dest, pvec_src);
     assert_true(vector_size(pvec_dest) == vector_size(pvec_src));
     assert_true(vector_capacity(pvec_dest) == 1500);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 2010);
     }
@@ -321,7 +321,7 @@ void test_vector_init_copy__successfully_cstr_little(void** state)
     vector_init_copy(pvec_dest, pvec_src);
     assert_true(vector_size(pvec_dest) == vector_size(pvec_src));
     assert_true(vector_capacity(pvec_dest) == 35);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(strcmp((char*)vector_at(pvec_dest, i), "c-string") == 0);
     }
@@ -340,7 +340,7 @@ void test_vector_init_copy__successfully_cstr_huge(void** state)
     vector_init_copy(pvec_dest, pvec_src);
     assert_true(vector_size(pvec_dest) == vector_size(pvec_src));
     assert_true(vector_capacity(pvec_dest) == 28500);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(strcmp((char*)vector_at(pvec_dest, i), "c-string") == 0);
     }
@@ -378,7 +378,7 @@ void test_vector_init_copy__successfully_cstl_builtin_little(void** state)
     vector_init_copy(pvec_dest, pvec_src);
     assert_true(vector_size(pvec_dest) == vector_size(pvec_src));
     assert_true(vector_capacity(pvec_dest) == 48);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(vector_equal((vector_t*)vector_at(pvec_dest, i), pvec_elem));
     }
@@ -400,7 +400,7 @@ void test_vector_init_copy__successfully_cstl_builtin_huge(void** state)
     vector_init_copy(pvec_dest, pvec_src);
     assert_true(vector_size(pvec_dest) == vector_size(pvec_src));
     assert_true(vector_capacity(pvec_dest) == 5553);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(vector_equal((vector_t*)vector_at(pvec_dest, i), pvec_elem));
     }
@@ -443,7 +443,7 @@ void test_vector_init_copy__successfully_user_define_little(void** state)
     vector_init_copy(pvec_dest, pvec_src);
     assert_true(vector_size(pvec_dest) == vector_size(pvec_src));
     assert_true(vector_capacity(pvec_dest) == 33);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(memcmp(
             (_test_vector_init_copy__successfully_user_define_t*)vector_at(pvec_dest, i), &t_user, sizeof(t_user)) == 0);
@@ -465,7 +465,7 @@ void test_vector_init_copy__successfully_user_define_huge(void** state)
     vector_init_copy(pvec_dest, pvec_src);
     assert_true(vector_size(pvec_dest) == vector_size(pvec_src));
     assert_true(vector_capacity(pvec_dest) == 16675);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(memcmp(
             (_test_vector_init_copy__successfully_user_define_t*)vector_at(pvec_dest, i), &t_user, sizeof(t_user)) == 0);
@@ -592,7 +592,7 @@ void test_vector_init_copy_range__successfully_c_builtin(void** state)
     vector_iterator_t it_end;
 
     vector_init(pvec_src);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec_src, i);
     }
@@ -602,7 +602,7 @@ void test_vector_init_copy_range__successfully_c_builtin(void** state)
     vector_init_copy_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 21);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == i + 3);
     }
@@ -626,7 +626,7 @@ void test_vector_init_copy_range__successfully_cstr(void** state)
     vector_init_copy_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 26);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(strcmp((char*)vector_at(pvec_dest, i), "abcdefg") == 0);
     }
@@ -652,7 +652,7 @@ void test_vector_init_copy_range__successfully_cstl_builtin(void** state)
     vector_init_copy_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 1356);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(vector_equal((vector_t*)vector_at(pvec_dest, i), pvec_elem));
     }
@@ -689,7 +689,7 @@ void test_vector_init_copy_range__successfully_user_define(void** state)
     vector_init_copy_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 15000);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(memcmp((_test_vector_init_copy_range__successfully_user_define_t*)vector_at(pvec_dest, i),
             &t_user, sizeof(t_user)) == 0);
@@ -708,7 +708,7 @@ void test_vector_init_copy_range__other_container_range(void** state)
     list_init_elem(plist, 10, 100);
     vector_init_copy_range(pvec, list_begin(plist), list_end(plist));
     assert_true(vector_size(pvec) == 10);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 100);
     }
@@ -723,7 +723,7 @@ void test_vector_init_copy_range__other_container_range(void** state)
 UT_CASE_DEFINATION(vector_init_copy_array)
 void test_vector_init_copy_array__null_dest(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     expect_assert_failure(vector_init_copy_array(NULL, an_array, 10));
 }
 
@@ -738,7 +738,7 @@ void test_vector_init_copy_array__invalid_array(void** state)
 
 void test_vector_init_copy_array__successfully_empty_array(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_t* pvec_dest = create_vector(int);
 
     vector_init_copy_array(pvec_dest, an_array, 0);
@@ -750,11 +750,11 @@ void test_vector_init_copy_array__successfully_empty_array(void** state)
 
 void test_vector_init_copy_array__successfully_c_builtin(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     size_t i = 0;
     vector_t* pvec_dest = create_vector(int);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         an_array[i] = i;
     }
@@ -762,7 +762,7 @@ void test_vector_init_copy_array__successfully_c_builtin(void** state)
     vector_init_copy_array(pvec_dest, an_array + 3, 5);
     assert_true(vector_size(pvec_dest) == 5);
     assert_true(vector_capacity(pvec_dest) == 21);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == i + 3);
     }
@@ -772,7 +772,7 @@ void test_vector_init_copy_array__successfully_c_builtin(void** state)
 
 void test_vector_init_copy_array__successfully_cstr(void** state)
 {
-    const char* as_array[10] = {NULL};
+    const char* as_array[10] = { NULL };
     size_t i = 0;
     vector_t* pvec_dest = create_vector(char*);
 
@@ -782,7 +782,7 @@ void test_vector_init_copy_array__successfully_cstr(void** state)
     vector_init_copy_array(pvec_dest, as_array, 10);
     assert_true(vector_size(pvec_dest) == 10);
     assert_true(vector_capacity(pvec_dest) == 26);
-    for(i = 0; i < vector_size(pvec_dest)-1; ++i)
+    for (i = 0; i < vector_size(pvec_dest) - 1; ++i)
     {
         assert_true(strcmp((char*)vector_at(pvec_dest, i), "abcdefg") == 0);
     }
@@ -792,7 +792,7 @@ void test_vector_init_copy_array__successfully_cstr(void** state)
 
 void test_vector_init_copy_array__successfully_cstl_builtin(void** state)
 {
-    vector_t* apvec_array[1004] = {NULL};
+    vector_t* apvec_array[1004] = { NULL };
     size_t i = 0;
     vector_t* pvec_dest = create_vector(vector_t<int>);
 
@@ -803,7 +803,7 @@ void test_vector_init_copy_array__successfully_cstl_builtin(void** state)
     vector_init_copy_array(pvec_dest, apvec_array + 100, 904);
     assert_true(vector_size(pvec_dest) == 904);
     assert_true(vector_capacity(pvec_dest) == 1356);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(vector_equal((vector_t*)vector_at(pvec_dest, i), apvec_array[i + 100]));
     }
@@ -821,7 +821,7 @@ void test_vector_init_copy_array__successfully_user_define(void** state)
         int n_elem;
     }_test_vector_init_copy_array__successfully_user_define_t;
 
-    _test_vector_init_copy_array__successfully_user_define_t* apt_array[10000] = {NULL};
+    _test_vector_init_copy_array__successfully_user_define_t* apt_array[10000] = { NULL };
     size_t i = 0;
     vector_t* pvec_dest = NULL;
 
@@ -836,7 +836,7 @@ void test_vector_init_copy_array__successfully_user_define(void** state)
     vector_init_copy_array(pvec_dest, apt_array, 10000);
     assert_true(vector_size(pvec_dest) == 10000);
     assert_true(vector_capacity(pvec_dest) == 15000);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(memcmp((_test_vector_init_copy_array__successfully_user_define_t*)vector_at(pvec_dest, i),
             apt_array[i], sizeof(_test_vector_init_copy_array__successfully_user_define_t)) == 0);
@@ -1062,7 +1062,7 @@ void test_vector_reserve__non_inited(void** state)
     vector_t* pvec = create_vector(int);
 
     pvec->_pby_finish = (_byte_t*)0x34;
-    expect_assert_failure(vector_reserve(pvec, 100));    
+    expect_assert_failure(vector_reserve(pvec, 100));
 
     pvec->_pby_finish = NULL;
     vector_destroy(pvec);
@@ -2388,7 +2388,7 @@ void test_vector_assign_range__0_assign_range_0(void** state)
     vector_assign_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 0);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2412,7 +2412,7 @@ void test_vector_assign_range__0_assign_range_10(void** state)
     vector_assign_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 26);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2436,7 +2436,7 @@ void test_vector_assign_range__0_assign_range_1000(void** state)
     vector_assign_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 1500);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2460,7 +2460,7 @@ void test_vector_assign_range__10_assign_range_0(void** state)
     vector_assign_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 26);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2484,7 +2484,7 @@ void test_vector_assign_range__10_assign_range_10_same_elem(void** state)
     vector_assign_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 26);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2508,7 +2508,7 @@ void test_vector_assign_range__10_assign_range_10_not_same_elem(void** state)
     vector_assign_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 26);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2532,7 +2532,7 @@ void test_vector_assign_range__10_assign_range_1000(void** state)
     vector_assign_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 1500);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2556,7 +2556,7 @@ void test_vector_assign_range__1000_assign_range_0(void** state)
     vector_assign_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 1500);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2580,7 +2580,7 @@ void test_vector_assign_range__1000_assign_range_10(void** state)
     vector_assign_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 1500);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2604,7 +2604,7 @@ void test_vector_assign_range__1000_assign_range_1700(void** state)
     vector_assign_range(pvec_dest, it_begin, it_end);
     assert_true(vector_size(pvec_dest) == iterator_distance(it_begin, it_end));
     assert_true(vector_capacity(pvec_dest) == 2550);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2624,7 +2624,7 @@ void test_vector_assign_range__other_container_range(void** state)
     assert_true(vector_size(pvec) == 10);
     vector_assign_range(pvec, list_begin(plist), list_end(plist));
     assert_true(vector_size(pvec) == 100);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 100);
     }
@@ -2639,7 +2639,7 @@ void test_vector_assign_range__other_container_range(void** state)
 UT_CASE_DEFINATION(vector_assign_array)
 void test_vector_assign_array__null_vector_container(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
 
@@ -2650,7 +2650,7 @@ void test_vector_assign_array__null_vector_container(void** state)
 
 void test_vector_assign_array__non_inited(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_t* pvec_dest = create_vector(int);
 
     pvec_dest->_pby_start = (_byte_t*)0x354;
@@ -2672,7 +2672,7 @@ void test_vector_assign_array__invalid_array(void** state)
 
 void test_vector_assign_array__0_assign_array_0(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     size_t i = 0;
     vector_t* pvec_dest = create_vector(int);
     vector_init(pvec_dest);
@@ -2680,7 +2680,7 @@ void test_vector_assign_array__0_assign_array_0(void** state)
     vector_assign_array(pvec_dest, an_array, 0);
     assert_true(vector_size(pvec_dest) == 0);
     assert_true(vector_capacity(pvec_dest) == 0);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2690,7 +2690,7 @@ void test_vector_assign_array__0_assign_array_0(void** state)
 
 void test_vector_assign_array__0_assign_array_10(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     size_t i = 0;
     vector_t* pvec_dest = create_vector(int);
     vector_init(pvec_dest);
@@ -2701,7 +2701,7 @@ void test_vector_assign_array__0_assign_array_10(void** state)
     vector_assign_array(pvec_dest, an_array, 10);
     assert_true(vector_size(pvec_dest) == 10);
     assert_true(vector_capacity(pvec_dest) == 26);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2711,7 +2711,7 @@ void test_vector_assign_array__0_assign_array_10(void** state)
 
 void test_vector_assign_array__0_assign_array_1000(void** state)
 {
-    int an_array[1000] = {0};
+    int an_array[1000] = { 0 };
     size_t i = 0;
     vector_t* pvec_dest = create_vector(int);
     vector_init(pvec_dest);
@@ -2722,7 +2722,7 @@ void test_vector_assign_array__0_assign_array_1000(void** state)
     vector_assign_array(pvec_dest, an_array, 1000);
     assert_true(vector_size(pvec_dest) == 1000);
     assert_true(vector_capacity(pvec_dest) == 1500);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2732,7 +2732,7 @@ void test_vector_assign_array__0_assign_array_1000(void** state)
 
 void test_vector_assign_array__10_assign_array_0(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     size_t i = 0;
     vector_t* pvec_dest = create_vector(int);
     vector_init_elem(pvec_dest, 10, 100);
@@ -2740,7 +2740,7 @@ void test_vector_assign_array__10_assign_array_0(void** state)
     vector_assign_array(pvec_dest, an_array, 0);
     assert_true(vector_size(pvec_dest) == 0);
     assert_true(vector_capacity(pvec_dest) == 26);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2750,7 +2750,7 @@ void test_vector_assign_array__10_assign_array_0(void** state)
 
 void test_vector_assign_array__10_assign_array_10_same_elem(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     size_t i = 0;
     vector_t* pvec_dest = create_vector(int);
     vector_init_elem(pvec_dest, 10, 100);
@@ -2761,7 +2761,7 @@ void test_vector_assign_array__10_assign_array_10_same_elem(void** state)
     vector_assign_array(pvec_dest, an_array, 10);
     assert_true(vector_size(pvec_dest) == 10);
     assert_true(vector_capacity(pvec_dest) == 26);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2771,7 +2771,7 @@ void test_vector_assign_array__10_assign_array_10_same_elem(void** state)
 
 void test_vector_assign_array__10_assign_array_10_not_same_elem(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     size_t i = 0;
     vector_t* pvec_dest = create_vector(int);
     vector_init_elem(pvec_dest, 10, 0);
@@ -2782,7 +2782,7 @@ void test_vector_assign_array__10_assign_array_10_not_same_elem(void** state)
     vector_assign_array(pvec_dest, an_array, 10);
     assert_true(vector_size(pvec_dest) == 10);
     assert_true(vector_capacity(pvec_dest) == 26);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2792,7 +2792,7 @@ void test_vector_assign_array__10_assign_array_10_not_same_elem(void** state)
 
 void test_vector_assign_array__10_assign_array_1000(void** state)
 {
-    int an_array[1000] = {0};
+    int an_array[1000] = { 0 };
     size_t i = 0;
     vector_t* pvec_dest = create_vector(int);
     vector_init_elem(pvec_dest, 10, 0);
@@ -2803,7 +2803,7 @@ void test_vector_assign_array__10_assign_array_1000(void** state)
     vector_assign_array(pvec_dest, an_array, 1000);
     assert_true(vector_size(pvec_dest) == 1000);
     assert_true(vector_capacity(pvec_dest) == 1500);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2813,7 +2813,7 @@ void test_vector_assign_array__10_assign_array_1000(void** state)
 
 void test_vector_assign_array__1000_assign_array_0(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     size_t i = 0;
     vector_t* pvec_dest = create_vector(int);
     vector_init_elem(pvec_dest, 1000, 0);
@@ -2821,7 +2821,7 @@ void test_vector_assign_array__1000_assign_array_0(void** state)
     vector_assign_array(pvec_dest, an_array, 0);
     assert_true(vector_size(pvec_dest) == 0);
     assert_true(vector_capacity(pvec_dest) == 1500);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2831,7 +2831,7 @@ void test_vector_assign_array__1000_assign_array_0(void** state)
 
 void test_vector_assign_array__1000_assign_array_10(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     size_t i = 0;
     vector_t* pvec_dest = create_vector(int);
     vector_init_elem(pvec_dest, 1000, 0);
@@ -2842,7 +2842,7 @@ void test_vector_assign_array__1000_assign_array_10(void** state)
     vector_assign_array(pvec_dest, an_array, 10);
     assert_true(vector_size(pvec_dest) == 10);
     assert_true(vector_capacity(pvec_dest) == 1500);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2852,7 +2852,7 @@ void test_vector_assign_array__1000_assign_array_10(void** state)
 
 void test_vector_assign_array__1000_assign_array_1700(void** state)
 {
-    int an_array[1700] = {0};
+    int an_array[1700] = { 0 };
     size_t i = 0;
     vector_t* pvec_dest = create_vector(int);
     vector_init_elem(pvec_dest, 1000, 0);
@@ -2863,7 +2863,7 @@ void test_vector_assign_array__1000_assign_array_1700(void** state)
     vector_assign_array(pvec_dest, an_array, 1700);
     assert_true(vector_size(pvec_dest) == 1700);
     assert_true(vector_capacity(pvec_dest) == 2550);
-    for(i = 0; i < vector_size(pvec_dest); ++i)
+    for (i = 0; i < vector_size(pvec_dest); ++i)
     {
         assert_true(*(int*)vector_at(pvec_dest, i) == 100);
     }
@@ -2883,7 +2883,7 @@ void test_vector_assign_array__cstr(void** state)
     assert_true(vector_size(pvec) == 10);
     vector_assign_array(pvec, as_array, 8);
     assert_true(vector_size(pvec) == 8);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(strcmp((char*)vector_at(pvec, i), as_array[i]) == 0);
     }
@@ -2893,7 +2893,7 @@ void test_vector_assign_array__cstr(void** state)
 
 void test_vector_assign_array__cstl(void** state)
 {
-    list_t* aplist_array[10] = {NULL};
+    list_t* aplist_array[10] = { NULL };
     vector_t* pvec = create_vector(list_t<int>);
     size_t i = 0;
 
@@ -2920,7 +2920,7 @@ typedef struct _test_vector_assign_array__user_define {
 }_test_vector_assign_array__user_define_t;
 void test_vector_assign_array__user_define(void** state)
 {
-    _test_vector_assign_array__user_define_t* apt_array[10] = {NULL};
+    _test_vector_assign_array__user_define_t* apt_array[10] = { NULL };
     vector_t* pvec = NULL;
     size_t i = 0;
 
@@ -3049,11 +3049,11 @@ void test_vector_swap__0_swap_10(void** state)
     assert_true(vector_capacity(pvec_first) == t_secondcapacity);
     assert_true(vector_size(pvec_second) == t_firstsize);
     assert_true(vector_capacity(pvec_second) == t_firstcapacity);
-    for(i = 0; i < vector_size(pvec_first); ++i)
+    for (i = 0; i < vector_size(pvec_first); ++i)
     {
         assert_true(*(int*)vector_at(pvec_first, i) == 100);
     }
-    for(i = 0; i < vector_size(pvec_second); ++i)
+    for (i = 0; i < vector_size(pvec_second); ++i)
     {
         assert_true(*(int*)vector_at(pvec_second, i) == 0);
     }
@@ -3085,11 +3085,11 @@ void test_vector_swap__0_swap_1000(void** state)
     assert_true(vector_capacity(pvec_first) == t_secondcapacity);
     assert_true(vector_size(pvec_second) == t_firstsize);
     assert_true(vector_capacity(pvec_second) == t_firstcapacity);
-    for(i = 0; i < vector_size(pvec_first); ++i)
+    for (i = 0; i < vector_size(pvec_first); ++i)
     {
         assert_true(*(int*)vector_at(pvec_first, i) == 100);
     }
-    for(i = 0; i < vector_size(pvec_second); ++i)
+    for (i = 0; i < vector_size(pvec_second); ++i)
     {
         assert_true(*(int*)vector_at(pvec_second, i) == 0);
     }
@@ -3121,11 +3121,11 @@ void test_vector_swap__10_swap_0(void** state)
     assert_true(vector_capacity(pvec_first) == t_secondcapacity);
     assert_true(vector_size(pvec_second) == t_firstsize);
     assert_true(vector_capacity(pvec_second) == t_firstcapacity);
-    for(i = 0; i < vector_size(pvec_first); ++i)
+    for (i = 0; i < vector_size(pvec_first); ++i)
     {
         assert_true(*(int*)vector_at(pvec_first, i) == 100);
     }
-    for(i = 0; i < vector_size(pvec_second); ++i)
+    for (i = 0; i < vector_size(pvec_second); ++i)
     {
         assert_true(*(int*)vector_at(pvec_second, i) == 0);
     }
@@ -3157,11 +3157,11 @@ void test_vector_swap__10_swap_10(void** state)
     assert_true(vector_capacity(pvec_first) == t_secondcapacity);
     assert_true(vector_size(pvec_second) == t_firstsize);
     assert_true(vector_capacity(pvec_second) == t_firstcapacity);
-    for(i = 0; i < vector_size(pvec_first); ++i)
+    for (i = 0; i < vector_size(pvec_first); ++i)
     {
         assert_true(*(int*)vector_at(pvec_first, i) == 100);
     }
-    for(i = 0; i < vector_size(pvec_second); ++i)
+    for (i = 0; i < vector_size(pvec_second); ++i)
     {
         assert_true(*(int*)vector_at(pvec_second, i) == 0);
     }
@@ -3193,11 +3193,11 @@ void test_vector_swap__10_swap_1000(void** state)
     assert_true(vector_capacity(pvec_first) == t_secondcapacity);
     assert_true(vector_size(pvec_second) == t_firstsize);
     assert_true(vector_capacity(pvec_second) == t_firstcapacity);
-    for(i = 0; i < vector_size(pvec_first); ++i)
+    for (i = 0; i < vector_size(pvec_first); ++i)
     {
         assert_true(*(int*)vector_at(pvec_first, i) == 100);
     }
-    for(i = 0; i < vector_size(pvec_second); ++i)
+    for (i = 0; i < vector_size(pvec_second); ++i)
     {
         assert_true(*(int*)vector_at(pvec_second, i) == 0);
     }
@@ -3229,11 +3229,11 @@ void test_vector_swap__1000_swap_0(void** state)
     assert_true(vector_capacity(pvec_first) == t_secondcapacity);
     assert_true(vector_size(pvec_second) == t_firstsize);
     assert_true(vector_capacity(pvec_second) == t_firstcapacity);
-    for(i = 0; i < vector_size(pvec_first); ++i)
+    for (i = 0; i < vector_size(pvec_first); ++i)
     {
         assert_true(*(int*)vector_at(pvec_first, i) == 100);
     }
-    for(i = 0; i < vector_size(pvec_second); ++i)
+    for (i = 0; i < vector_size(pvec_second); ++i)
     {
         assert_true(*(int*)vector_at(pvec_second, i) == 0);
     }
@@ -3265,11 +3265,11 @@ void test_vector_swap__1000_swap_10(void** state)
     assert_true(vector_capacity(pvec_first) == t_secondcapacity);
     assert_true(vector_size(pvec_second) == t_firstsize);
     assert_true(vector_capacity(pvec_second) == t_firstcapacity);
-    for(i = 0; i < vector_size(pvec_first); ++i)
+    for (i = 0; i < vector_size(pvec_first); ++i)
     {
         assert_true(*(int*)vector_at(pvec_first, i) == 100);
     }
-    for(i = 0; i < vector_size(pvec_second); ++i)
+    for (i = 0; i < vector_size(pvec_second); ++i)
     {
         assert_true(*(int*)vector_at(pvec_second, i) == 0);
     }
@@ -3301,11 +3301,11 @@ void test_vector_swap__1000_swap_1010(void** state)
     assert_true(vector_capacity(pvec_first) == t_secondcapacity);
     assert_true(vector_size(pvec_second) == t_firstsize);
     assert_true(vector_capacity(pvec_second) == t_firstcapacity);
-    for(i = 0; i < vector_size(pvec_first); ++i)
+    for (i = 0; i < vector_size(pvec_first); ++i)
     {
         assert_true(*(int*)vector_at(pvec_first, i) == 100);
     }
-    for(i = 0; i < vector_size(pvec_second); ++i)
+    for (i = 0; i < vector_size(pvec_second); ++i)
     {
         assert_true(*(int*)vector_at(pvec_second, i) == 0);
     }
@@ -3369,12 +3369,12 @@ void test_vector_at__successfully(void** state)
     size_t i = 0;
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
 
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == i);
     }
@@ -3747,7 +3747,7 @@ void test_vector_insert_range__empty_insert_10(void** state)
     vector_insert_range(pvec, it_pos, vector_begin(pvec_src), vector_end(pvec_src));
     assert_true(vector_size(pvec) == 10);
     assert_true(vector_capacity(pvec) == 26);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 100);
     }
@@ -3771,7 +3771,7 @@ void test_vector_insert_range__empty_insert_1000(void** state)
     vector_insert_range(pvec, it_pos, vector_begin(pvec_src), vector_end(pvec_src));
     assert_true(vector_size(pvec) == 1000);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 100);
     }
@@ -3795,7 +3795,7 @@ void test_vector_insert_range__begin_insert_0(void** state)
     vector_insert_range(pvec, it_pos, vector_begin(pvec_src), vector_end(pvec_src));
     assert_true(vector_size(pvec) == 1000);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -3819,9 +3819,9 @@ void test_vector_insert_range__begin_insert_10(void** state)
     vector_insert_range(pvec, it_pos, vector_begin(pvec_src), vector_end(pvec_src));
     assert_true(vector_size(pvec) == 1010);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i < 10)
+        if (i < 10)
         {
             assert_true(*(int*)vector_at(pvec, i) == 100);
         }
@@ -3850,9 +3850,9 @@ void test_vector_insert_range__begin_insert_1000(void** state)
     vector_insert_range(pvec, it_pos, vector_begin(pvec_src), vector_end(pvec_src));
     assert_true(vector_size(pvec) == 2000);
     assert_true(vector_capacity(pvec) == 3000);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i < 1000)
+        if (i < 1000)
         {
             assert_true(*(int*)vector_at(pvec, i) == 100);
         }
@@ -3881,7 +3881,7 @@ void test_vector_insert_range__middle_insert_0(void** state)
     vector_insert_range(pvec, it_pos, vector_begin(pvec_src), vector_end(pvec_src));
     assert_true(vector_size(pvec) == 1000);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -3905,9 +3905,9 @@ void test_vector_insert_range__middle_insert_10(void** state)
     vector_insert_range(pvec, it_pos, vector_begin(pvec_src), vector_end(pvec_src));
     assert_true(vector_size(pvec) == 1010);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i >= 300 && i < 310)
+        if (i >= 300 && i < 310)
         {
             assert_true(*(int*)vector_at(pvec, i) == 100);
         }
@@ -3936,9 +3936,9 @@ void test_vector_insert_range__middle_insert_1000(void** state)
     vector_insert_range(pvec, it_pos, vector_begin(pvec_src), vector_end(pvec_src));
     assert_true(vector_size(pvec) == 2457);
     assert_true(vector_capacity(pvec) == 3685);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i >= 300 && i < 1757)
+        if (i >= 300 && i < 1757)
         {
             assert_true(*(int*)vector_at(pvec, i) == 100);
         }
@@ -3967,7 +3967,7 @@ void test_vector_insert_range__end_insert_0(void** state)
     vector_insert_range(pvec, it_pos, vector_begin(pvec_src), vector_end(pvec_src));
     assert_true(vector_size(pvec) == 1000);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -3991,9 +3991,9 @@ void test_vector_insert_range__end_insert_10(void** state)
     vector_insert_range(pvec, it_pos, vector_begin(pvec_src), vector_end(pvec_src));
     assert_true(vector_size(pvec) == 1010);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i >= 1000)
+        if (i >= 1000)
         {
             assert_true(*(int*)vector_at(pvec, i) == 100);
         }
@@ -4022,9 +4022,9 @@ void test_vector_insert_range__end_insert_1000(void** state)
     vector_insert_range(pvec, it_pos, vector_begin(pvec_src), vector_end(pvec_src));
     assert_true(vector_size(pvec) == 2100);
     assert_true(vector_capacity(pvec) == 3150);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i >= 1000)
+        if (i >= 1000)
         {
             assert_true(*(int*)vector_at(pvec, i) == 100);
         }
@@ -4049,9 +4049,9 @@ void test_vector_insert_range__other_container_range(void** state)
     assert_true(vector_size(pvec) == 10);
     vector_insert_range(pvec, vector_end(pvec), list_begin(plist), list_end(plist));
     assert_true(vector_size(pvec) == 110);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i < 10)
+        if (i < 10)
         {
             assert_true(*(int*)vector_at(pvec, i) == 0);
         }
@@ -4071,7 +4071,7 @@ void test_vector_insert_range__other_container_range(void** state)
 UT_CASE_DEFINATION(vector_insert_array)
 void test_vector_insert_array__null_vector_container(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
 
@@ -4082,7 +4082,7 @@ void test_vector_insert_array__null_vector_container(void** state)
 
 void test_vector_insert_array__non_inited(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_t* pvec = create_vector(int);
     pvec->_pby_start = (_byte_t*)0x78;
 
@@ -4094,7 +4094,7 @@ void test_vector_insert_array__non_inited(void** state)
 
 void test_vector_insert_array__invalid_position(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_iterator_t it_pos = _create_vector_iterator();
     vector_t* pvec = create_vector(int);
     vector_init_n(pvec, 10);
@@ -4120,7 +4120,7 @@ void test_vector_insert_array__invalid_array(void** state)
 
 void test_vector_insert_array__empty_insert_0(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_iterator_t it_pos;
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
@@ -4137,7 +4137,7 @@ void test_vector_insert_array__empty_insert_0(void** state)
 
 void test_vector_insert_array__empty_insert_10(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_iterator_t it_pos;
     size_t i = 0;
     vector_t* pvec = create_vector(int);
@@ -4152,7 +4152,7 @@ void test_vector_insert_array__empty_insert_10(void** state)
     vector_insert_array(pvec, it_pos, an_array, 10);
     assert_true(vector_size(pvec) == 10);
     assert_true(vector_capacity(pvec) == 26);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 100);
     }
@@ -4162,7 +4162,7 @@ void test_vector_insert_array__empty_insert_10(void** state)
 
 void test_vector_insert_array__empty_insert_1000(void** state)
 {
-    int an_array[1000] = {0};
+    int an_array[1000] = { 0 };
     vector_iterator_t it_pos;
     size_t i = 0;
     vector_t* pvec = create_vector(int);
@@ -4177,7 +4177,7 @@ void test_vector_insert_array__empty_insert_1000(void** state)
     vector_insert_array(pvec, it_pos, an_array, 1000);
     assert_true(vector_size(pvec) == 1000);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 100);
     }
@@ -4187,7 +4187,7 @@ void test_vector_insert_array__empty_insert_1000(void** state)
 
 void test_vector_insert_array__begin_insert_0(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_iterator_t it_pos;
     size_t i = 0;
     vector_t* pvec = create_vector(int);
@@ -4199,7 +4199,7 @@ void test_vector_insert_array__begin_insert_0(void** state)
     vector_insert_array(pvec, it_pos, an_array, 0);
     assert_true(vector_size(pvec) == 1000);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -4209,7 +4209,7 @@ void test_vector_insert_array__begin_insert_0(void** state)
 
 void test_vector_insert_array__begin_insert_10(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_iterator_t it_pos;
     size_t i = 0;
     vector_t* pvec = create_vector(int);
@@ -4224,9 +4224,9 @@ void test_vector_insert_array__begin_insert_10(void** state)
     vector_insert_array(pvec, it_pos, an_array, 10);
     assert_true(vector_size(pvec) == 1010);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i < 10)
+        if (i < 10)
         {
             assert_true(*(int*)vector_at(pvec, i) == 100);
         }
@@ -4241,7 +4241,7 @@ void test_vector_insert_array__begin_insert_10(void** state)
 
 void test_vector_insert_array__begin_insert_1000(void** state)
 {
-    int an_array[1000] = {0};
+    int an_array[1000] = { 0 };
     vector_iterator_t it_pos;
     size_t i = 0;
     vector_t* pvec = create_vector(int);
@@ -4256,9 +4256,9 @@ void test_vector_insert_array__begin_insert_1000(void** state)
     vector_insert_array(pvec, it_pos, an_array, 1000);
     assert_true(vector_size(pvec) == 2000);
     assert_true(vector_capacity(pvec) == 3000);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i < 1000)
+        if (i < 1000)
         {
             assert_true(*(int*)vector_at(pvec, i) == 100);
         }
@@ -4273,7 +4273,7 @@ void test_vector_insert_array__begin_insert_1000(void** state)
 
 void test_vector_insert_array__middle_insert_0(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_iterator_t it_pos;
     size_t i = 0;
     vector_t* pvec = create_vector(int);
@@ -4285,7 +4285,7 @@ void test_vector_insert_array__middle_insert_0(void** state)
     vector_insert_array(pvec, it_pos, an_array, 0);
     assert_true(vector_size(pvec) == 1000);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -4295,7 +4295,7 @@ void test_vector_insert_array__middle_insert_0(void** state)
 
 void test_vector_insert_array__middle_insert_10(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_iterator_t it_pos;
     size_t i = 0;
     vector_t* pvec = create_vector(int);
@@ -4310,9 +4310,9 @@ void test_vector_insert_array__middle_insert_10(void** state)
     vector_insert_array(pvec, it_pos, an_array, 10);
     assert_true(vector_size(pvec) == 1010);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i >= 300 && i < 310)
+        if (i >= 300 && i < 310)
         {
             assert_true(*(int*)vector_at(pvec, i) == 100);
         }
@@ -4327,7 +4327,7 @@ void test_vector_insert_array__middle_insert_10(void** state)
 
 void test_vector_insert_array__middle_insert_1000(void** state)
 {
-    int an_array[1457] = {0};
+    int an_array[1457] = { 0 };
     vector_iterator_t it_pos;
     size_t i = 0;
     vector_t* pvec = create_vector(int);
@@ -4342,9 +4342,9 @@ void test_vector_insert_array__middle_insert_1000(void** state)
     vector_insert_array(pvec, it_pos, an_array, 1457);
     assert_true(vector_size(pvec) == 2457);
     assert_true(vector_capacity(pvec) == 3685);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i >= 300 && i < 1757)
+        if (i >= 300 && i < 1757)
         {
             assert_true(*(int*)vector_at(pvec, i) == 100);
         }
@@ -4359,7 +4359,7 @@ void test_vector_insert_array__middle_insert_1000(void** state)
 
 void test_vector_insert_array__end_insert_0(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_iterator_t it_pos;
     size_t i = 0;
     vector_t* pvec = create_vector(int);
@@ -4371,7 +4371,7 @@ void test_vector_insert_array__end_insert_0(void** state)
     vector_insert_array(pvec, it_pos, an_array, 0);
     assert_true(vector_size(pvec) == 1000);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -4381,7 +4381,7 @@ void test_vector_insert_array__end_insert_0(void** state)
 
 void test_vector_insert_array__end_insert_10(void** state)
 {
-    int an_array[10] = {0};
+    int an_array[10] = { 0 };
     vector_iterator_t it_pos;
     size_t i = 0;
     vector_t* pvec = create_vector(int);
@@ -4396,9 +4396,9 @@ void test_vector_insert_array__end_insert_10(void** state)
     vector_insert_array(pvec, it_pos, an_array, 10);
     assert_true(vector_size(pvec) == 1010);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i >= 1000)
+        if (i >= 1000)
         {
             assert_true(*(int*)vector_at(pvec, i) == 100);
         }
@@ -4413,7 +4413,7 @@ void test_vector_insert_array__end_insert_10(void** state)
 
 void test_vector_insert_array__end_insert_1000(void** state)
 {
-    int an_array[1100] = {0};
+    int an_array[1100] = { 0 };
     vector_iterator_t it_pos;
     size_t i = 0;
     vector_t* pvec = create_vector(int);
@@ -4428,9 +4428,9 @@ void test_vector_insert_array__end_insert_1000(void** state)
     vector_insert_array(pvec, it_pos, an_array, 1100);
     assert_true(vector_size(pvec) == 2100);
     assert_true(vector_capacity(pvec) == 3150);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i >= 1000)
+        if (i >= 1000)
         {
             assert_true(*(int*)vector_at(pvec, i) == 100);
         }
@@ -4455,9 +4455,9 @@ void test_vector_insert_array__cstr(void** state)
     assert_true(vector_size(pvec) == 10);
     vector_insert_array(pvec, vector_end(pvec), as_array, 5);
     assert_true(vector_size(pvec) == 15);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
-        if(i < 10)
+        if (i < 10)
         {
             assert_true(strcmp((char*)vector_at(pvec, i), "") == 0);
         }
@@ -4472,7 +4472,7 @@ void test_vector_insert_array__cstr(void** state)
 
 void test_vector_insert_array__cstl(void** state)
 {
-    list_t* aplist_array[10] = {NULL};
+    list_t* aplist_array[10] = { NULL };
     vector_t* pvec = create_vector(list_t<int>);
     size_t i = 0;
 
@@ -4499,7 +4499,7 @@ typedef struct _test_vector_insert_array__user_define {
 }_test_vector_insert_array__user_define_t;
 void test_vector_insert_array__user_define(void** state)
 {
-    _test_vector_insert_array__user_define_t* apt_array[10] = {NULL};
+    _test_vector_insert_array__user_define_t* apt_array[10] = { NULL };
     vector_t* pvec = NULL;
     size_t i = 0;
 
@@ -4560,7 +4560,7 @@ void test_vector_pop_back__successfully(void** state)
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
 
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4587,7 +4587,7 @@ void test_vector_erase__null_vector_container(void** state)
     vector_iterator_t it_pos = _create_vector_iterator();
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4609,7 +4609,7 @@ void test_vector_erase__non_inited_vector_container(void** state)
     vector_iterator_t it_pos = _create_vector_iterator();
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4633,7 +4633,7 @@ void test_vector_erase__invalid_pos_end(void** state)
     vector_iterator_t it_pos = _create_vector_iterator();
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4654,7 +4654,7 @@ void test_vector_erase__invalid_pos(void** state)
     vector_iterator_t it_pos = _create_vector_iterator();
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4677,7 +4677,7 @@ void test_vector_erase__successfully_begin(void** state)
     vector_iterator_t it_iter;
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4703,7 +4703,7 @@ void test_vector_erase__successfully_middle(void** state)
     vector_iterator_t it_iter;
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4729,7 +4729,7 @@ void test_vector_erase__successfully_back(void** state)
     vector_iterator_t it_iter;
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4760,7 +4760,7 @@ void test_vector_erase_range__null_vector_container(void** state)
     vector_iterator_t it_end = _create_vector_iterator();
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4784,7 +4784,7 @@ void test_vector_erase_range__non_inited_vector_container(void** state)
     vector_iterator_t it_end = _create_vector_iterator();
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4810,7 +4810,7 @@ void test_vector_erase_range__invalid_range_not_belong_to_vector(void** state)
     vector_iterator_t it_end = _create_vector_iterator();
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4831,7 +4831,7 @@ void test_vector_erase_range__invalid_range(void** state)
     vector_iterator_t it_end = _create_vector_iterator();
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4856,7 +4856,7 @@ void test_vector_erase_range__successfully_empty(void** state)
     vector_iterator_t it_iter;
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4883,7 +4883,7 @@ void test_vector_erase_range__successfully_begin(void** state)
     vector_iterator_t it_iter;
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4912,7 +4912,7 @@ void test_vector_erase_range__successfully_middle(void** state)
     vector_iterator_t it_iter;
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4941,7 +4941,7 @@ void test_vector_erase_range__successfully_end(void** state)
     vector_iterator_t it_iter;
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -4971,7 +4971,7 @@ void test_vector_erase_range__successfully_all(void** state)
     vector_iterator_t it_iter;
     vector_t* pvec = create_vector(int);
     vector_init(pvec);
-    for(i = 0; i < 10; ++i)
+    for (i = 0; i < 10; ++i)
     {
         vector_push_back(pvec, i);
     }
@@ -5085,7 +5085,7 @@ void test_vector_resize__successfully_0_resize_10(void** state)
     vector_resize(pvec, 10);
     assert_true(vector_size(pvec) == 10);
     assert_true(vector_capacity(pvec) == 26);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -5104,7 +5104,7 @@ void test_vector_resize__successfully_0_resize_1000(void** state)
     vector_resize(pvec, 1000);
     assert_true(vector_size(pvec) == 1000);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -5137,7 +5137,7 @@ void test_vector_resize__successfully_10_resize_10(void** state)
     vector_resize(pvec, 10);
     assert_true(vector_size(pvec) == 10);
     assert_true(vector_capacity(pvec) == 26);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -5156,7 +5156,7 @@ void test_vector_resize__successfully_10_resize_1000(void** state)
     vector_resize(pvec, 1000);
     assert_true(vector_size(pvec) == 1000);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -5189,7 +5189,7 @@ void test_vector_resize__successfully_1000_resize_10(void** state)
     vector_resize(pvec, 10);
     assert_true(vector_size(pvec) == 10);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -5208,7 +5208,7 @@ void test_vector_resize__successfully_1000_resize_1000(void** state)
     vector_resize(pvec, 1000);
     assert_true(vector_size(pvec) == 1000);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -5227,7 +5227,7 @@ void test_vector_resize__successfully_1000_resize_1200(void** state)
     vector_resize(pvec, 1200);
     assert_true(vector_size(pvec) == 1200);
     assert_true(vector_capacity(pvec) == 1500);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }
@@ -5246,7 +5246,7 @@ void test_vector_resize__successfully_1000_resize_2000(void** state)
     vector_resize(pvec, 2000);
     assert_true(vector_size(pvec) == 2000);
     assert_true(vector_capacity(pvec) == 3000);
-    for(i = 0; i < vector_size(pvec); ++i)
+    for (i = 0; i < vector_size(pvec); ++i)
     {
         assert_true(*(int*)vector_at(pvec, i) == 0);
     }

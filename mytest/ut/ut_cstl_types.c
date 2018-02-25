@@ -14,6 +14,5 @@ UT_CASE_DEFINATION(mtype_register_c_builtin)
 void test_mtype_register_c_builtin(void** state)
 {
     size_t output = 0;
-    mtype_register_c_builtin();
    // expect_assert_failure(_type_init_default(NULL, &output));
 }

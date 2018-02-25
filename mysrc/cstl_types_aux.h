@@ -4,16 +4,10 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#include "mycstl/cstl_types.h"
-extern type_register_t  _gt_typeregister;
 
-/**
-* Test the type is registered or not
-* @param s_typename    type name.
-* @return type point to registered type name.
-* @remarks s_typename must be not NULL.
-*/
-extern type_t* mtype_is_registered(const char* s_typename);
+#include "mycstl/cstl_types.h"
+
+extern type_register_t  my_gt_typeregister;
 
 /**
 * Initialize the register and register c builtin type and cstl builtin type
