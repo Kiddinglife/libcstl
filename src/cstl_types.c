@@ -53,6 +53,13 @@
 /** local global variable definition section **/
 
 /** exported function implementation section **/
+void _type_info_debug(_typeinfo_t* tinfo)
+{
+    printf("tinfo->_s_typename: %s\n",tinfo->_s_typename);
+    printf("tinfo->_t_style: %d\n", tinfo->_t_style);
+    printf("tinfo->_pt_type->_s_typename: %s\n", tinfo->_pt_type->_s_typename);
+    printf("tinfo->_pt_type->_t_style: %d\n", tinfo->_pt_type->_t_style);
+}
 void _type_debug(void)
 {
     size_t       i = 0;
@@ -333,6 +340,8 @@ static inline bool_t _type_cstl_builtin_special(const char* s_typename)
 
 void _type_get_type(_typeinfo_t* pt_typeinfo, const char* s_typename)
 {
+    //printf("enter _type_get_type()::s_typename=%s\n", s_typename);
+
     char s_registeredname[_TYPE_NAME_SIZE + 1];
 
     assert(pt_typeinfo != NULL);

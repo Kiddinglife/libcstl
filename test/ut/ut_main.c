@@ -189,6 +189,9 @@ int main(int argc, char* argv[])
         UT_CSTL_TYPES_BUILTIN_CASE,
         UT_CSTL_TYPES_PARSE_CASE,
         UT_CSTL_TYPES_AUX_CASE,
+        */
+        UT_CASE(test__type_get_type__c_builtin)
+        /*
         UT_CSTL_TYPES_CASE
 #ifndef _MSC_VER
         UT_CSTL_TYPES_BUILTIN_CASE_C99,

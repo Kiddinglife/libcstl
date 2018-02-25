@@ -1,18 +1,13 @@
 #include "mysrc/cstl_types_aux.h"
 
-void mtype_get_type(type_info_t* pt_typeinfo, const char* s_typename)
+void mtype_get_type(type_t* pt_typeinfo, const char* s_typename)
 {
     assert(pt_typeinfo != NULL);
     assert(s_typename != NULL);
     char s_registered_name[TYPE_NAME_SIZE + 1];
 
     if (!_gt_typeregister._t_isinit) 
-        mtype_init();
-
-
-
-
-
+       mtype_init();
 }
 
 /* default copy, less, and destroy function */

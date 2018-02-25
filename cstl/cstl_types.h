@@ -212,6 +212,7 @@ extern void _type_get_varg_value(_typeinfo_t* pt_typeinfo, va_list val_elemlist,
 extern void _type_get_elem_typename(const char* s_typename, char* s_elemtypename);
 
 extern void _type_debug(void);
+extern void _type_info_debug(_typeinfo_t* tinfo);
 
 /* default initialize, copy, less, and destroy function */
 /* node: the pv_output is used for the size of default type, 

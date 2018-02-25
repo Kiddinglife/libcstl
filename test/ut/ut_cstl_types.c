@@ -732,6 +732,23 @@ void test__type_get_type__cstl_container(void** state)
     assert_true(t_info._pt_type->_t_typedestroy == _type_destroy_deque);
 }
 
+static void  my_type_init()
+{
+}
+static _typestyle_t my_type_get_style(int* s_typename, int* s_formalname)
+{
+}
+static void my_get_type(_typeinfo_t* pt_typeinfo, const int s_typename)
+{
+}
+void test__type_get_type__refactored(void** state)
+{
+}
+
+void test__type_get_type__compare_cstl_and_stl(void** state)
+{
+}
+
 /*
  * test _type_get_type_pair
  */
@@ -1473,6 +1490,7 @@ void test__all_types__hash_set_iterator(void** state)
 void test__all_types__hash_map_iterator(void** state)
 {
     vector_t* pvec = create_vector(hash_map_iterator_t);
+    //_type_debug();
     assert_true(pvec != NULL);
     vector_destroy(pvec);
 }
