@@ -20,9 +20,6 @@ extern type_t* mtype_is_registered(const char* s_typename);
 */
 extern void mtype_init(void);
 
-extern void mtype_register_c_builtin(void);
-extern void mtype_register_cstl_builtin(void);
-
 /**
 * Caculate hash from type name.
 * @param s_typename    type name.

@@ -1,20 +1,6 @@
 #include "cstl_types_aux.h"
 #include "cstl_types_builtin.h"
 
-/** local constant declaration and local macro section **/
-extern type_register_t _gt_typeregister = { 0 };
-
-void mtype_init(void)
-{
-    size_t i = 0;
-    for (i = 0; i < TYPE_REGISTER_BUCKET_COUNT; ++i) {
-        _gt_typeregister._apt_bucket[i] = NULL;
-    }
-    mtype_register_c_builtin();
-    mtype_register_cstl_builtin();
-    _gt_typeregister._t_isinit = 1;
-}
-
 /* the pt_type, pt_node and t_pos must be defined before use those macro */
 static void register_type_(int arr[], int tsize, int tid, int tstyle,
     bfun_t init, bfun_t cpy, bfun_t less, bfun_t destroy)
@@ -38,72 +24,32 @@ static void register_type_(int arr[], int tsize, int tid, int tstyle,
     _gt_typeregister._curr_size++;
 }
 
-void mtype_register_c_builtin(void)
+#define register_type(type, type_, nativetype, ctype) \
+    int arr##type##[] = { type }; \
+    register_type_(arr##type,  sizeof(type_), type, ctype,\
+        _type_init_##nativetype, _type_copy_##nativetype, _type_less_##nativetype,\
+        _type_destroy_##nativetype)
+
+/** local constant declaration and local macro section **/
+extern type_register_t _gt_typeregister = { 0 };
+
+void mtype_init(void)
 {
-    int arrsint8t[] = { sint8t };
-    register_type_(arrsint8t,
-        sizeof(char),
-        sint8t,
-        ctype,
-        _type_init_char,
-        _type_copy_char,
-        _type_less_char,
-        _type_destroy_char);
+    register_type(sint8t, char, char, ctype);
+    register_type(sint16t, short, short, ctype);
+    register_type(sint32t, int, int, ctype);
+    register_type(uint8t, char, uchar, ctype);
+    register_type(uint16t, unsigned short, ushort, ctype);
+    register_type(uint32t, int, uint, ctype);
+    register_type(floatt, float, float, ctype);
+    register_type(doublet, double, double, ctype);
+    register_type(voidpointert, void*, pointer, ctype);
 
-    //TYPE_REGISTER_BEGIN();
-    //REGISTER_TYPE(char, sint8t, char, ctype, {sint8t}, 1);
-    //REGISTER_TYPE_NODE(char, _CHAR_TYPE);
-    //REGISTER_TYPE_NODE(signed char, _SIGNED_CHAR_TYPE);
-    ///* register unsigned char */
-    //REGISTER_TYPE(unsigned char, _UNSIGNED_CHAR_TYPE, uchar, TYPE_C_BUILTIN);
-    //REGISTER_TYPE_NODE(unsigned char, _UNSIGNED_CHAR_TYPE);
-    ///* register short */
-    //REGISTER_TYPE(short, _SHORT_TYPE, short, TYPE_C_BUILTIN);
-    //REGISTER_TYPE_NODE(short, _SHORT_TYPE);
-    //REGISTER_TYPE_NODE(short int, _SHORT_INT_TYPE);
-    //REGISTER_TYPE_NODE(signed short, _SIGNED_SHORT_TYPE);
-    //REGISTER_TYPE_NODE(signed short int, _SIGNED_SHORT_INT_TYPE);
-    ///* register unsigned short */
-    //REGISTER_TYPE(unsigned short, _UNSIGNED_SHORT_TYPE, ushort, TYPE_C_BUILTIN);
-    //REGISTER_TYPE_NODE(unsigned short, _UNSIGNED_SHORT_TYPE);
-    //REGISTER_TYPE_NODE(unsigned short int, _UNSIGNED_SHORT_INT_TYPE);
-    ///* register int */
-    //REGISTER_TYPE(int, _INT_TYPE, int, TYPE_C_BUILTIN);
-    //REGISTER_TYPE_NODE(int, _INT_TYPE);
-    //REGISTER_TYPE_NODE(signed, _SIGNED_TYPE);
-    //REGISTER_TYPE_NODE(signed int, _SIGNED_INT_TYPE);
-    ///* register unsigned int */
-    //REGISTER_TYPE(unsigned int, _UNSIGNED_INT_TYPE, uint, TYPE_C_BUILTIN);
-    //REGISTER_TYPE_NODE(unsigned int, _UNSIGNED_INT_TYPE);
-    //REGISTER_TYPE_NODE(signed, _UNSIGNED_TYPE);
-    ///* register long */
-    //REGISTER_TYPE(long, _LONG_TYPE, long, TYPE_C_BUILTIN);
-    //REGISTER_TYPE_NODE(long, _LONG_TYPE);
-    //REGISTER_TYPE_NODE(long int, _LONG_INT_TYPE);
-    //REGISTER_TYPE_NODE(signed long, _SIGNED_LONG_TYPE);
-    //REGISTER_TYPE_NODE(signed long int, _SIGNED_LONG_INT_TYPE);
-    ///* register unsigned long */
-    //REGISTER_TYPE(unsigned long, _UNSIGNED_LONG_TYPE, ulong, TYPE_C_BUILTIN);
-    //REGISTER_TYPE_NODE(unsigned long, _UNSIGNED_LONG_TYPE);
-    //REGISTER_TYPE_NODE(unsigned long int, _UNSIGNED_LONG_INT_TYPE);
-    ///* register float */
-    //REGISTER_TYPE(float, _FLOAT_TYPE, float, TYPE_C_BUILTIN);
-    //REGISTER_TYPE_NODE(float, _FLOAT_TYPE);
-    ///* register double */
-    //REGISTER_TYPE(double, _DOUBLE_TYPE, double, TYPE_C_BUILTIN);
-    //REGISTER_TYPE_NODE(double, _DOUBLE_TYPE);
-    ///* register long double */
-    //REGISTER_TYPE(long double, _LONG_DOUBLE_TYPE, long_double, TYPE_C_BUILTIN);
-    //REGISTER_TYPE_NODE(long double, _LONG_DOUBLE_TYPE);
-    ///* register bool_t */
-    //REGISTER_TYPE(bool_t, _CSTL_BOOL_TYPE, cstl_bool, TYPE_C_BUILTIN);
-    //REGISTER_TYPE_NODE(bool_t, _CSTL_BOOL_TYPE);
+    //@TODO register cstl types
 
-}
-
-void mtype_register_cstl_builtin(void)
-{
-
+    for (int i = _gt_typeregister._curr_size; i < TYPE_REGISTER_BUCKET_COUNT; i++)
+        _gt_typeregister._apt_bucket[i] = NULL;
+    _gt_typeregister._t_isinit = 1;
 }
 
 /* BKDR hash seed */

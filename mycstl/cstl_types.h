@@ -8,9 +8,10 @@ extern "C" {
 #include <stddef.h>
 #include "mycstl/cstl_def.h"
 
-#define TYPE_REGISTER_BUCKET_COUNT  128
-#define TYPE_NAME_SIZE              255
-#define TYPE_ID_SIZE              8
+    // user can override this
+#define TYPE_NAME_SIZE 255
+#define TYPE_REGISTER_BUCKET_COUNT  64
+#define TYPE_ID_SIZE              4
 
     typedef enum
     {
@@ -36,6 +37,33 @@ extern "C" {
         cstltype,
         userdefined,
         invalidtype
+    };
+
+    const char* g_buildin_type_str[] =
+    {
+        "sint8t",
+        "uint8t",
+        "sint16t",
+        "uint16t",
+        "sint32t",
+        "uint32t",
+        "sint64t",
+        "uint64t",
+        "floatt",
+        "doublet",
+        "suint8pointert",
+        "voidpointert",
+
+        "vector_tt",
+        "list_tt",
+        "map_tt",
+        "hash_tt",
+
+        "ctype",
+        "cstltype",
+        "userdefined",
+        "userdefined",
+        "invalidtype",
     };
 
     /*

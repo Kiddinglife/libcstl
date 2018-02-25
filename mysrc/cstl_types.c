@@ -4,8 +4,7 @@ void mtype_get_type(type_t* pt_typeinfo, const char* s_typename)
 {
     assert(pt_typeinfo != NULL);
     assert(s_typename != NULL);
-    char s_registered_name[TYPE_NAME_SIZE + 1];
-
+    printf("tyname  = %s\n", g_buildin_type_str[pt_typeinfo->_t_typeid]);
     if (!_gt_typeregister._t_isinit) 
        mtype_init();
 }
