@@ -71,6 +71,7 @@ void mtype_init(void)
 
 type_t*  mtype_get_type(int typeid)
 {
+    assert(typeid >=0 || typeid < TYPE_REGISTER_BUCKET_COUNT);
     if (!my_gt_typeregister._t_isinit) 
        mtype_init();
     return  my_gt_typeregister._apt_bucket[typeid];

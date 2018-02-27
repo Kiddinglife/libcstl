@@ -25,6 +25,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>cstl</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/cstl</locationURI>
+		</link>
+		<link>
 			<name>mycstl</name>
 			<type>2</type>
 			<locationURI>PARENT-2-PROJECT_LOC/mycstl</locationURI>
@@ -38,6 +43,16 @@
 			<name>mytest</name>
 			<type>2</type>
 			<locationURI>PARENT-2-PROJECT_LOC/mytest</locationURI>
+		</link>
+		<link>
+			<name>src</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/src</locationURI>
+		</link>
+		<link>
+			<name>test</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/test</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

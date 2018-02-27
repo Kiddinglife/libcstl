@@ -42,8 +42,22 @@
 						</toolChain>
 					</folderInfo>
 					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.753349144.2056318600" name="Makefile.am" rcbsApplicability="disable" resourcePath="mytest/Makefile.am" toolsToInvoke=""/>
+					<folderInfo id="cdt.managedbuild.config.gnu.exe.debug.753349144.1590382514" name="/" resourcePath="cstl">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.exe.debug.1838135336" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.debug" unusedChildren="">
+							<tool id="cdt.managedbuild.tool.gnu.archiver.base.2101452232" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base.749217638"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.244090891" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1652921300"/>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1853692883" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.578738920">
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.346718141" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.478719343" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug.316972223"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.1324167343" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.895356601"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.893295628" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug.1774914886">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1438822579" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="cstl|test|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
