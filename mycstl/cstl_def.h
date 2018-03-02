@@ -63,8 +63,8 @@ extern "C" {
 #endif
 
     /** data type declaration and struct, union, enum section **/
-    typedef unsigned char            _byte_t;
-    typedef size_t                   bool_t;         /* declaration for bool type */
+    typedef unsigned char                   _byte_t;
+    typedef unsigned char                   bool_t;         /* declaration for bool type */
 
                                                      /** exported global variable declaration section **/
 

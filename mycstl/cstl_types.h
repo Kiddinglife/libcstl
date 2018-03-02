@@ -11,7 +11,7 @@ extern "C" {
     // user can override this
 #define TYPE_NAME_SIZE 255
 #define TYPE_REGISTER_BUCKET_COUNT  64
-#define TYPE_ID_SIZE              4
+#define TYPE_ID_SIZE              8
 
     enum
     {
@@ -52,9 +52,9 @@ extern "C" {
 
     typedef struct
     {
-        size_t                   _t_typeid;
-        size_t               _t_typesize;                        /* type size */
-        size_t         _t_style;                           /* type style */
+        unsigned char        _t_typeid;
+        unsigned short       _t_typesize;                        /* type size */
+        unsigned char        _t_style;                           /* type style */
         bfun_t               _t_typecopy;                        /* type copy function */
         bfun_t               _t_typeless;                        /* type less function */
         ufun_t               _t_typeinit;                        /* type initialize function */
@@ -63,12 +63,11 @@ extern "C" {
 
     typedef struct
     {
-        bool_t               _t_isinit; /* is initializate for c and cstl built in types */
-        size_t                _curr_size;
-        type_t*                _apt_bucket[TYPE_REGISTER_BUCKET_COUNT];
-    }type_register_t;
+        unsigned char        _t_typeids[TYPE_ID_SIZE];
+        type_t*              _t_type;
+    }type_info_t;
 
-    extern type_t*  mtype_get_type(int typeid);
+    extern type_t*  mtype_get_type(const char* s_typename);
 
 #ifdef __cplusplus
 }
