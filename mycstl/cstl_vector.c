@@ -6,14 +6,15 @@ vector_t* create_vector(int size, ...)
 {
     /* allocate for vector_t and initialize it */
     assert(size <= TYPE_ID_SIZE);
+    init_types();
+
     vector_t*   pvec_vector;
     va_list a_list;
     int typeid;
 
     if ((pvec_vector = (vector_t*)malloc(sizeof(vector_t))) == NULL)
         return NULL;
-
-    init_types();
+    pvec_vector->_pby_finish = pvec_vector->_pby_start = pvec_vector->_pby_endofstorage = NULL;
 
     va_start(a_list, size);
     for (int x = 0; x < size; x++)
