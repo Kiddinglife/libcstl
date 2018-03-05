@@ -43,16 +43,7 @@ typedef struct _tagvector
  * @remarks if s_typename == NULL, then the behavior is undefined. s_typename should be C builtin type name,
  *          libcstl builtin typename or registed user defined type name, otherwise the function will return NULL.
  */
-extern vector_t* _create_vector(const char* s_typename);
-
-/**
- * Create vector container that save specificed element type.
- * @param typename    specificed element type. vecor_t<list_t<int>>
- * @return return vector pointer, if create vector container successfully, otherwise return NULL.
- * @remarks the format of specificed element type reference <<The libcstl Library Reference Manual>> Chapter 8.
- * your compiler must support stdc99 for the use of __VA_ARGS__
- */
-#define create_vector(...) _create_vector(#__VA_ARGS__)
+extern vector_t* create_vector(int size, ...);
 
 #ifdef __cplusplus
 }
