@@ -6,6 +6,8 @@ extern "C"
 {
 #endif
 
+#include <stdint.h>
+
 /* default copy, less, and destroy function */
 extern void _type_init_default(const void* cpv_input, void* pv_output);
 extern void _type_copy_default(const void* cpv_first, const void* cpv_second, void* pv_output);
@@ -194,7 +196,6 @@ extern void _type_copy_basic_string(const void* cpv_first, const void* cpv_secon
 extern void _type_less_basic_string(const void* cpv_first, const void* cpv_second, void* pv_output);
 extern void _type_destroy_basic_string(const void* cpv_input, void* pv_output);
 
-#ifndef _MSC_VER
 /* _Bool */
 extern void _type_init_bool(const void* cpv_input, void* pv_output);
 extern void _type_copy_bool(const void* cpv_first, const void* cpv_second, void* pv_output);
@@ -210,7 +211,6 @@ extern void _type_init_ulong_long(const void* cpv_input, void* pv_output);
 extern void _type_copy_ulong_long(const void* cpv_first, const void* cpv_second, void* pv_output);
 extern void _type_less_ulong_long(const void* cpv_first, const void* cpv_second, void* pv_output);
 extern void _type_destroy_ulong_long(const void* cpv_input, void* pv_output);
-#endif
 
 #ifdef __cplusplus
 }

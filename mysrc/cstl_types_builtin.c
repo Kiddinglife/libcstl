@@ -369,3 +369,82 @@ void _type_destroy_pointer(const void* cpv_input, void* pv_output)
   _type_destroy_default(cpv_input, pv_output);
 }
 
+
+/* _Bool */
+void _type_init_bool(const void* cpv_input, void* pv_output)
+{
+    assert(cpv_input != NULL && pv_output != NULL);
+    *(_Bool*)cpv_input = false;
+    *(bool_t*)pv_output = true;
+}
+
+void _type_copy_bool(const void* cpv_first, const void* cpv_second, void* pv_output)
+{
+    assert(cpv_first != NULL && cpv_second != NULL && pv_output != NULL);
+    *(_Bool*)cpv_first = *(_Bool*)cpv_second;
+    *(bool_t*)pv_output = true;
+}
+
+void _type_less_bool(const void* cpv_first, const void* cpv_second, void* pv_output)
+{
+    assert(cpv_first != NULL && cpv_second != NULL && pv_output != NULL);
+    *(bool_t*)pv_output = *(_Bool*)cpv_first < *(_Bool*)cpv_second ? true : false;
+}
+
+void _type_destroy_bool(const void* cpv_input, void* pv_output)
+{
+    _type_destroy_default(cpv_input, pv_output);
+}
+
+/* int64_t */
+void _type_init_long_long(const void* cpv_input, void* pv_output)
+{
+    assert(cpv_input != NULL && pv_output != NULL);
+    *(int64_t*)cpv_input = false;
+    *(bool_t*)pv_output = true;
+}
+
+void _type_copy_long_long(const void* cpv_first, const void* cpv_second, void* pv_output)
+{
+    assert(cpv_first != NULL && cpv_second != NULL && pv_output != NULL);
+    *(int64_t*)cpv_first = *(int64_t*)cpv_second;
+    *(bool_t*)pv_output = true;
+}
+
+void _type_less_long_long(const void* cpv_first, const void* cpv_second, void* pv_output)
+{
+    assert(cpv_first != NULL && cpv_second != NULL && pv_output != NULL);
+    *(bool_t*)pv_output = *(int64_t*)cpv_first < *(int64_t*)cpv_second ? true : false;
+}
+
+void _type_destroy_long_long(const void* cpv_input, void* pv_output)
+{
+    _type_destroy_default(cpv_input, pv_output);
+}
+
+/* uint64_t */
+void _type_init_ulong_long(const void* cpv_input, void* pv_output)
+{
+    assert(cpv_input != NULL && pv_output != NULL);
+    *(uint64_t*)cpv_input = false;
+    *(bool_t*)pv_output = true;
+}
+
+void _type_copy_ulong_long(const void* cpv_first, const void* cpv_second, void* pv_output)
+{
+    assert(cpv_first != NULL && cpv_second != NULL && pv_output != NULL);
+    *(uint64_t*)cpv_first = *(uint64_t*)cpv_second;
+    *(bool_t*)pv_output = true;
+}
+
+void _type_less_ulong_long(const void* cpv_first, const void* cpv_second, void* pv_output)
+{
+    assert(cpv_first != NULL && cpv_second != NULL && pv_output != NULL);
+    *(bool_t*)pv_output = *(uint64_t*)cpv_first < *(uint64_t*)cpv_second ? true : false;
+}
+
+void _type_destroy_ulong_long(const void* cpv_input, void* pv_output)
+{
+    _type_destroy_default(cpv_input, pv_output);
+}
+

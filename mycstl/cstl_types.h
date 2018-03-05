@@ -13,29 +13,29 @@ extern "C" {
 #define TYPE_REGISTER_BUCKET_COUNT  64
 #define TYPE_ID_SIZE              8
 
-    enum
+    enum 
     {
-        sint8t,
-        uint8t,
-        sint16t,
-        uint16t,
-        sint32t,
-        uint32t,
-        sint64t,
-        uint64t,
-        floatt,
-        doublet,
-        voidpt,
+        cstl_int8t=0,
+        cstl_uint8,
+        cstl_int16,
+        cstl_uint16,
+        cstl_int32,
+        cstl_uint32,
+        cstl_int64,
+        cstl_uint64,
+        cstl_float,
+        cstl_double,
+        cstl_void_pt,
 
-        vector_tt,
-        list_tt,
-        map_tt,
-        hash_tt,
+        cstl_vector,
+        cstl_list,
+        cstl_map,
+        cstl_hash,
     };
 
     enum
     {
-        ctype,
+        ctype=0,
         cstltype,
         userdefined,
         invalidtype
@@ -69,8 +69,9 @@ extern "C" {
     }type_info_t;
 
     extern type_t* _apt_bucket[TYPE_REGISTER_BUCKET_COUNT];
-    extern void set_type_info(type_info_t* typeinfo, va_list s_typename);
     extern void show_registered_types();
+    extern void init_types(void);
+
 #ifdef __cplusplus
 }
 #endif

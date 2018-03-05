@@ -3,7 +3,7 @@
 
 static const char* g_buildin_type_str[] =
 {
-    "sint8t", "uint8t", "sint16t", "uint16t", "sint32t", "uint32t", "sint64t", "uint64t", "floatt", "doublet",
+    "int8t", "uint8t", "int16t", "uint16t", "int32t", "uint32t", "int64t", "uint64t", "floatt", "doublet",
     "voidpointert","vector_tt", "list_tt", "map_tt", "hash_tt"
 };
 
@@ -29,7 +29,7 @@ static bool_t _t_isinit = false; /* is initializate for c and cstl built in type
 static unsigned char _registered_type_count = 0;
 extern type_t* _apt_bucket[TYPE_REGISTER_BUCKET_COUNT] = { 0 };
 
-void mtype_init(void)
+void init_types(void)
 {
     register_type_start();
     register_type(char, char, ctype);
@@ -37,9 +37,9 @@ void mtype_init(void)
     register_type(short, short, ctype);
     register_type(unsigned short, ushort, ctype);
     register_type(int, int, ctype);
-    register_type(int, uint, ctype);
-    register_type(long, long, ctype);
-    register_type(unsigned long, ulong, ctype);
+    register_type(unsigned int, uint, ctype);
+    register_type(int64_t, long_long, ctype);
+    register_type(uint64_t, ulong_long, ctype);
     register_type(float, float, ctype);
     register_type(double, double, ctype);
     register_type(void*, pointer, ctype);
@@ -55,6 +55,7 @@ void mtype_init(void)
 
 void show_registered_types()
 {
+    init_types();
     printf("total type number: %d\n", _registered_type_count);
     for (int i = 0; i < _registered_type_count; i++)
     {
@@ -62,7 +63,7 @@ void show_registered_types()
         {
             printf("type name: %s, type style:%s, type size: %d\n",
                 g_buildin_type_str[_apt_bucket[i]->_t_typeid],
-                g_type_style_str[_apt_bucket[i]->_t_typeid],
+                g_type_style_str[_apt_bucket[i]->_t_style],
                 _apt_bucket[i]->_t_typesize);
         }
     }
@@ -71,7 +72,7 @@ void show_registered_types()
 void set_type_info_(type_info_t* typeinfo, const char* s_typename)
 {
     if (!_t_isinit)
-        mtype_init();
+        init_types();
 
     // parse typename str and translate to typeid
     // vector<list<map<vector<int>, set<int>>>>
@@ -144,9 +145,4 @@ void set_type_info_(type_info_t* typeinfo, const char* s_typename)
     assert(typeinfo->_t_typeids[0] >= 0 || typeinfo->_t_typeids[0] < TYPE_REGISTER_BUCKET_COUNT);
     typeinfo->_t_type = _apt_bucket[typeinfo->_t_typeids[0]];
     return 0;
-}
-
-void set_type_info(type_info_t* typeinfo, va_list s_typename)
-{
-
 }
